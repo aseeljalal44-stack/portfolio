@@ -19,13 +19,29 @@
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <!-- زر تبديل اللغة الجديد (في أعلى اليمين) -->
-    <div class="simple-lang-toggle">
-        <button id="lang-toggle-simple">
-            <i class="fas fa-globe"></i>
-            <span id="lang-text-simple">EN</span>
-        </button>
-    </div>
+    <!-- شريط التنقل العلوي (بدون شعار) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- تم إزالة الشعار هنا -->
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#about" data-i18n="about">عنّي</a></li>
+                <li><a href="#skills" data-i18n="skills">المهارات</a></li>
+                <li><a href="#projects" data-i18n="projects">المشاريع</a></li>
+                <li><a href="#contact" data-i18n="contact">تواصل</a></li>
+                <li>
+                    <button class="lang-toggle" id="lang-toggle">
+                        <i class="fas fa-globe"></i>
+                        <span class="lang-text">EN</span>
+                    </button>
+                </li>
+            </ul>
+            
+            <button class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
 
     <!-- القسم الرئيسي (Hero) -->
     <header class="hero">

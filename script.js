@@ -2,15 +2,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     // تهيئة حالة التطبيق
     const appState = {
-        currentLang: 'ar', // اللغة الافتراضية
-        isMenuOpen: false
+        currentLang: 'ar' // اللغة الافتراضية
     };
     
     // عناصر DOM المهمة
     const elements = {
-        langToggle: document.getElementById('lang-toggle'),
-        hamburger: document.getElementById('hamburger'),
-        navMenu: document.getElementById('nav-menu'),
         heroName: document.getElementById('hero-name'),
         heroRole: document.getElementById('hero-role'),
         heroTagline: document.getElementById('hero-tagline'),
@@ -19,9 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
         projectsContainer: document.getElementById('projects-container'),
         copyrightText: document.getElementById('copyright-text'),
         profileImg: document.getElementById('profile-img'),
-        aboutText: document.getElementById('about-text'),
-        availabilityTitle: document.getElementById('availability-title'),
-        availabilityText: document.getElementById('availability-text')
+        fallbackName: document.getElementById('fallback-name'),
+        fallbackTitle: document.getElementById('fallback-title')
     };
     
     // ============ تحميل البيانات ============
@@ -58,13 +53,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // ============ تهيئة التطبيق بعد تحميل البيانات ============
     function initializeApp() {
-        // تهيئة القائمة المتحركة
-        initMobileMenu();
-        
         // تهيئة تبديل اللغة
         initLanguageToggle();
         
-        // تهيئة تحميل الصورة
+        // تهيئة الصورة الشخصية
         initProfileImage();
         
         // تحديث جميع النصوص بناءً على اللغة الحالية
@@ -77,86 +69,55 @@ document.addEventListener('DOMContentLoaded', function() {
         setupScrollEvents();
     }
     
-    // ============ القائمة المتحركة للأجهزة المحمولة ============
-    function initMobileMenu() {
-        if (elements.hamburger && elements.navMenu) {
-            elements.hamburger.addEventListener('click', function() {
-                appState.isMenuOpen = !appState.isMenuOpen;
-                elements.navMenu.classList.toggle('active');
-                
-                // تغيير أيقونة القائمة
-                const icon = elements.hamburger.querySelector('i');
-                if (appState.isMenuOpen) {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
-                } else {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
-            });
-            
-            // إغلاق القائمة عند النقر على رابط
-            const navLinks = elements.navMenu.querySelectorAll('a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    if (window.innerWidth <= 768) {
-                        appState.isMenuOpen = false;
-                        elements.navMenu.classList.remove('active');
-                        const icon = elements.hamburger.querySelector('i');
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                    }
-                });
-            });
-        }
-    }
-    
     // ============ تبديل اللغة ============
     function initLanguageToggle() {
-        if (elements.langToggle) {
-            elements.langToggle.addEventListener('click', function() {
+        const langToggle = document.getElementById('lang-toggle-simple');
+        
+        if (langToggle) {
+            langToggle.addEventListener('click', function() {
                 // تبديل اللغة
                 appState.currentLang = appState.currentLang === 'ar' ? 'en' : 'ar';
-                
-                // تحديث النصوص
-                updateAllTexts();
                 
                 // تحديث اتجاه الصفحة
                 document.documentElement.dir = appState.currentLang === 'ar' ? 'rtl' : 'ltr';
                 document.documentElement.lang = appState.currentLang;
                 
-                // تحديث نص زر تبديل اللغة
-                const langText = elements.langToggle.querySelector('.lang-text');
-                langText.textContent = appState.currentLang === 'ar' ? 'EN' : 'عربي';
+                // تحديث جميع النصوص
+                updateAllTexts();
                 
-                // إغلاق القائمة المتحركة إذا كانت مفتوحة
-                if (window.innerWidth <= 768 && appState.isMenuOpen) {
-                    appState.isMenuOpen = false;
-                    elements.navMenu.classList.remove('active');
-                    const icon = elements.hamburger.querySelector('i');
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
+                // تحديث المحتوى الديناميكي
+                updateDynamicContent();
+                
+                // إعادة تحميل البيانات
+                reloadDynamicData();
             });
         }
     }
     
-    // ============ تحميل الصورة الشخصية ============
+    // ============ تهيئة الصورة الشخصية ============
     function initProfileImage() {
         if (elements.profileImg) {
-            // تحقق من تحميل الصورة بعد وقت قصير
+            // بعد 2 ثانية، إذا لم تتحمل الصورة، أظهر البديل
             setTimeout(() => {
-                if (elements.profileImg.naturalWidth === 0) {
-                    console.log('⚠️ الصورة الشخصية لم تتحمل - تحقق من المسار: assets/images/profile.jpg');
-                } else {
-                    console.log('✅ الصورة الشخصية تم تحميلها بنجاح');
+                if (elements.profileImg.naturalWidth === 0 || !elements.profileImg.complete) {
+                    console.log('⚠️ الصورة لم تتحمل، عرض البديل');
+                    elements.profileImg.style.display = 'none';
+                    document.getElementById('avatar-fallback').style.display = 'flex';
                 }
-            }, 1000);
+            }, 2000);
         }
     }
     
     // ============ تحديث جميع النصوص ============
     function updateAllTexts() {
+        // تحديث النصوص الأساسية
+        updateBasicTexts();
+        
+        // تحديث المحتوى الديناميكي
+        updateDynamicContent();
+    }
+    
+    function updateBasicTexts() {
         const lang = appState.currentLang;
         const t = appData.translations[lang];
         const user = appData.user;
@@ -175,7 +136,16 @@ document.addEventListener('DOMContentLoaded', function() {
             elements.heroTagline.textContent = user[`tagline_${lang}`];
         }
         
-        // تحديث النصوص المترجمة
+        // تحديث نص البديل للصورة
+        if (elements.fallbackName) {
+            elements.fallbackName.textContent = user[`name_${lang}`];
+        }
+        
+        if (elements.fallbackTitle) {
+            elements.fallbackTitle.textContent = user[`role_${lang}`];
+        }
+        
+        // تحديث جميع النصوص المترجمة
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
             if (t && t[key]) {
@@ -183,25 +153,20 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // تحديث نص "عنّي"
-        if (elements.aboutText && t && t.about_text) {
-            elements.aboutText.textContent = t.about_text;
-        }
-        
-        // تحديث قسم التوافر
-        if (elements.availabilityTitle && t && t.availability) {
-            elements.availabilityTitle.textContent = t.availability;
-        }
-        if (elements.availabilityText && t && t.available_for_projects) {
-            elements.availabilityText.textContent = t.available_for_projects;
-        }
-        
         // تحديث نص حقوق النشر
         if (elements.copyrightText) {
             const year = new Date().getFullYear();
-            elements.copyrightText.textContent = lang === 'ar' 
-                ? `© ${year} AA | Data Solutions. جميع الحقوق محفوظة.`
-                : `© ${year} AA | Data Solutions. All rights reserved.`;
+            if (lang === 'ar') {
+                elements.copyrightText.innerHTML = `© ${year} جميع الحقوق محفوظة. <strong>Aseel Alzawahreh</strong>`;
+            } else {
+                elements.copyrightText.innerHTML = `© ${year} All rights reserved. <strong>Aseel Alzawahreh</strong>`;
+            }
+        }
+        
+        // تحديث نص زر تبديل اللغة
+        const langTextElement = document.getElementById('lang-text-simple');
+        if (langTextElement) {
+            langTextElement.textContent = lang === 'ar' ? 'EN' : 'عربي';
         }
     }
     
@@ -210,6 +175,18 @@ document.addEventListener('DOMContentLoaded', function() {
         loadServices();
         loadSkills();
         loadProjects();
+    }
+    
+    function updateDynamicContent() {
+        // إعادة تحميل كل المحتوى باللغة الجديدة
+        loadServices();
+        loadSkills();
+        loadProjects();
+    }
+    
+    function reloadDynamicData() {
+        // إعادة تحميل البيانات من الملف
+        loadData();
     }
     
     function loadServices() {
@@ -316,11 +293,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // ============ أحداث التمرير ============
     function setupScrollEvents() {
-        // تحديث الرابط النشط في شريط التنقل أثناء التمرير
-        window.addEventListener('scroll', function() {
-            updateActiveNavLink();
-        });
-        
         // التمرير السلس عند النقر على الروابط
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -332,7 +304,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const targetElement = document.querySelector(href);
                 
                 if (targetElement) {
-                    const offset = 80;
+                    const offset = 60;
                     const targetPosition = targetElement.offsetTop - offset;
                     
                     window.scrollTo({
@@ -341,31 +313,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                 }
             });
-        });
-    }
-    
-    function updateActiveNavLink() {
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
-        
-        let currentSectionId = '';
-        const scrollPosition = window.scrollY + 100;
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                currentSectionId = section.getAttribute('id');
-            }
-        });
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            const href = link.getAttribute('href');
-            if (href === `#${currentSectionId}`) {
-                link.classList.add('active');
-            }
         });
     }
     

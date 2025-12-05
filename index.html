@@ -3,11 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="بورتفوليو خبير حلول البيانات التفاعلية | Interactive Data Solutions Expert Portfolio">
-    <title>Aseel Alzawahreh | Data Solutions Expert</title>
     
-    <!-- الخطوط -->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- SEO Meta Tags -->
+    <title>Aseel Alzawahreh | Full-Stack Developer & Data Solutions Expert</title>
+    <meta name="description" content="مطور Full-Stack متخصص في بناء لوحات تحكم وأدوات ذكية تساعد الشركات على تحليل البيانات واتخاذ قرارات أسرع. جاهز لمشروعك القادم!">
+    <meta name="keywords" content="مطور ويب, Full-Stack Developer, لوحات تحكم, تحليل بيانات, Python, Streamlit, تصميم مواقع">
+    <meta name="author" content="Aseel Alzawahreh">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Aseel Alzawahreh | Full-Stack Developer Portfolio">
+    <meta property="og:description" content="مطور Full-Stack متخصص في بناء لوحات تحكم وأدوات ذكية للشركات">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aseelalzawahreh.com">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://aseelalzawahreh.com">
+    
+    <!-- الخطوط المحسنة -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Cairo:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     
     <!-- الأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -19,23 +32,25 @@
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <!-- شريط التنقل العلوي (بدون شعار) -->
+    <!-- شريط التنقل العلوي -->
     <nav class="navbar">
         <div class="nav-container">
-            <!-- تم إزالة الشعار هنا -->
-            
+            <!-- قائمة التنقل الأساسية -->
             <ul class="nav-menu" id="nav-menu">
                 <li><a href="#about" data-i18n="about">عنّي</a></li>
+                <li><a href="#services" data-i18n="services">الخدمات</a></li>
                 <li><a href="#skills" data-i18n="skills">المهارات</a></li>
                 <li><a href="#projects" data-i18n="projects">المشاريع</a></li>
                 <li><a href="#contact" data-i18n="contact">تواصل</a></li>
-                <li>
-                    <button class="lang-toggle" id="lang-toggle">
-                        <i class="fas fa-globe"></i>
-                        <span class="lang-text">EN</span>
-                    </button>
-                </li>
             </ul>
+            
+            <!-- زر اللغة منفصل -->
+            <div class="language-section">
+                <button class="lang-toggle" id="lang-toggle">
+                    <i class="fas fa-globe"></i>
+                    <span class="lang-text">EN</span>
+                </button>
+            </div>
             
             <button class="hamburger" id="hamburger">
                 <i class="fas fa-bars"></i>
@@ -50,24 +65,24 @@
                 <h1 class="hero-title">
                     <span id="hero-name" class="arabic-name">أسيل الزواهرة</span>
                 </h1>
-                <h2 class="hero-subtitle" id="hero-role">خبير حلول البيانات التفاعلية</h2>
-                <p class="hero-tagline" id="hero-tagline">أحول البيانات المعقدة إلى لوحات تحكم ذكية وقابلة للتنفيذ</p>
+                <h2 class="hero-subtitle" id="hero-role">Full-Stack Developer</h2>
+                <p class="hero-tagline" id="hero-tagline">متخصص في بناء لوحات تحكم وأدوات ذكية تساعد الشركات على فهم بياناتها واتخاذ قرارات أسرع</p>
                 
                 <div class="hero-buttons">
                     <a href="#projects" class="btn-primary" data-i18n="view_projects">عرض المشاريع</a>
                     <a href="#contact" class="btn-secondary" data-i18n="contact_me">تواصل معي</a>
+                    <a href="#contact" class="btn-cta" id="cta-button">🚀 احجز مشروعك الآن</a>
                 </div>
             </div>
             
             <div class="profile-image">
-                <!-- ضع صورتك هنا باسم profile.jpg في مجلد assets/images -->
-                <img src="assets/images/profile.jpg" alt="أسيل الزواهرة - خبير حلول البيانات" 
+                <img src="assets/images/profile.jpg" alt="أسيل الزواهرة - Full-Stack Developer" 
                      id="profile-img" 
                      onerror="this.onerror=null; this.style.display='none'; document.getElementById('avatar-fallback').style.display='flex';">
                 <div class="avatar-fallback" id="avatar-fallback">
                     <i class="fas fa-user-circle"></i>
                     <p id="fallback-name">أسيل الزواهرة</p>
-                    <small id="fallback-title">Data Solutions Expert</small>
+                    <small id="fallback-title">Full-Stack Developer</small>
                 </div>
             </div>
         </div>
@@ -76,7 +91,7 @@
     <!-- المحتوى الرئيسي -->
     <main class="main-content">
         <!-- قسم عني -->
-        <section id="about" class="section">
+        <section id="about" class="section fade-in">
             <div class="section-header">
                 <h2 class="section-title" data-i18n="about">عنّي</h2>
                 <div class="section-divider"></div>
@@ -84,21 +99,63 @@
             
             <div class="about-content">
                 <p class="about-text" data-i18n="about_text">
-                    متخصص في هندسة حلول البيانات وتطوير لوحات التحكم التفاعلية. أمتلك خبرة في تحويل العمليات اليدوية إلى أنظمة مؤتمتة بالكامل، وتحويل ملفات Excel الثابتة إلى تطبيقات ويب ديناميكية تدعم اتخاذ القرارات الاستراتيجية. أركز على بناء حلول قابلة للتطوير تلبي احتياجات الأعمال المعقدة.
+                    أنا مطور برمجيات أركز على بناء أدوات ولوحات تحكم تساعد الأفراد والمتاجر على تحليل البيانات واتخاذ قرارات أسرع. خلال العام الأخير أنجزت أكثر من 10 أدوات، وجميع شغلي يعتمد على تصميم بسيط وتجربة واضحة وسرعة في التنفيذ.
                 </p>
-                
-                <!-- الخدمات -->
-                <div class="services-section">
-                    <h3 class="services-title" data-i18n="services_title">الخدمات المقدمة</h3>
-                    <div class="services-grid" id="services-container">
-                        <!-- سيتم تعبئته بواسطة JavaScript -->
+            </div>
+        </section>
+
+        <!-- قسم الخدمات الجديد -->
+        <section id="services" class="section section-dark fade-in">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="services_title">الخدمات المقدمة</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">حلول تقنية مصممة خصيصاً لاحتياجات عملك</p>
+            </div>
+            
+            <div class="services-grid-pro">
+                <div class="service-card-pro card-hover-effect">
+                    <div class="service-icon-pro">
+                        <i class="fas fa-chart-network"></i>
                     </div>
+                    <h3>تصميم وبناء لوحات تحكم</h3>
+                    <p>تحويل البيانات إلى رسومات تفاعلية جاهزة للقراءة واتخاذ القرارات</p>
+                    <ul class="service-features">
+                        <li>تصور بيانات تفاعلي</li>
+                        <li>تقارير لحظية</li>
+                        <li>تحليلات متقدمة</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card-pro card-hover-effect">
+                    <div class="service-icon-pro">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>تطوير أدوات وحاسبات مخصصة</h3>
+                    <p>أدوات تساعد الشركات على توفير وقت وجهد العمليات اليومية</p>
+                    <ul class="service-features">
+                        <li>أدوات تلقائية</li>
+                        <li>حاسبات متخصصة</li>
+                        <li>تكامل مع الأنظمة</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card-pro card-hover-effect">
+                    <div class="service-icon-pro">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>بناء صفحات هبوط وبورتفوليو</h3>
+                    <p>تصاميم سريعة، متناسقة، جاهزة للإطلاق على GitHub أو السيرفر</p>
+                    <ul class="service-features">
+                        <li>تصميم متجاوب</li>
+                        <li>تحسين SEO</li>
+                        <li>سرعة فائقة</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- قسم المهارات -->
-        <section id="skills" class="section section-dark">
+        <!-- قسم المهارات المحسن -->
+        <section id="skills" class="section fade-in">
             <div class="section-header">
                 <h2 class="section-title" data-i18n="skills_title">المهارات التقنية</h2>
                 <div class="section-divider"></div>
@@ -110,7 +167,7 @@
         </section>
 
         <!-- قسم المشاريع -->
-        <section id="projects" class="section">
+        <section id="projects" class="section section-dark fade-in">
             <div class="section-header">
                 <h2 class="section-title" data-i18n="projects_title">أبرز المشاريع</h2>
                 <div class="section-divider"></div>
@@ -121,44 +178,52 @@
             </div>
         </section>
 
-        <!-- قسم التواصل -->
-        <section id="contact" class="section section-dark">
+        <!-- قسم التواصل المحسن -->
+        <section id="contact" class="section fade-in">
             <div class="section-header">
-                <h2 class="section-title" data-i18n="contact_title">طرق التواصل</h2>
+                <h2 class="section-title" data-i18n="contact_title">جاهز لبدء مشروعك؟</h2>
                 <div class="section-divider"></div>
+                <p class="contact-subtitle">ردّي عادة خلال 1-2 ساعة</p>
             </div>
             
-            <div class="contact-container-simple">
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
+            <div class="contact-container-pro">
+                <div class="contact-info-pro">
+                    <h3 data-i18n="get_in_touch">تواصل معي مباشرة</h3>
+                    
+                    <div class="contact-buttons">
+                        <a href="https://wa.me/962785094075" class="contact-btn whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            WhatsApp
+                        </a>
+                        
+                        <a href="mailto:aseeljalal45@gmail.com" class="contact-btn email">
+                            <i class="fas fa-envelope"></i>
+                            Email
+                        </a>
+                        
+                        <a href="https://github.com/aseeljalal44-stack" class="contact-btn github" target="_blank">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
                     </div>
-                    <h3 data-i18n="email_label">البريد الإلكتروني</h3>
-                    <a href="mailto:aseeljalal45@gmail.com" class="contact-link">aseeljalal45@gmail.com</a>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fab fa-whatsapp"></i>
+                    
+                    <div class="contact-details-pro">
+                        <div class="contact-detail-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>سرعة الرد:</strong>
+                                <span>1-2 ساعة خلال أوقات العمل</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>نسبة الإنجاز:</strong>
+                                <span>100% من المشاريع تم تسليمها في الوقت المحدد</span>
+                            </div>
+                        </div>
                     </div>
-                    <h3 data-i18n="whatsapp_label">واتساب</h3>
-                    <span class="contact-info">+962785094075</span>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fab fa-github"></i>
-                    </div>
-                    <h3 data-i18n="github_label">GitHub</h3>
-                    <a href="https://github.com/aseeljalal44-stack" target="_blank" class="contact-link">github.com/aseeljalal44-stack</a>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3 data-i18n="availability">التوافر</h3>
-                    <span class="contact-info" data-i18n="available_for_projects">متاح للمشاريع الجديدة</span>
                 </div>
             </div>
         </section>

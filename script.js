@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', function() {
             elements.fallbackTitle.textContent = user[`role_${lang}`];
         }
         
-        // تحديث زر CTA
+        // تحديث زر CTA بناءً على اللغة
         if (elements.ctaButton) {
             elements.ctaButton.textContent = lang === 'ar' ? '🚀 احجز مشروعك الآن' : '🚀 Book Your Project Now';
         }
@@ -270,14 +270,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // ============ تحميل المحتوى الديناميكي ============
     function loadDynamicContent() {
-        loadServices();
         loadSkills();
         loadProjects();
     }
     
     function updateDynamicContent() {
         // إعادة تحميل كل المحتوى باللغة الجديدة
-        loadServices();
         loadSkills();
         loadProjects();
     }
@@ -285,28 +283,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function reloadDynamicData() {
         // إعادة تحميل البيانات من الملف
         loadData();
-    }
-    
-    function loadServices() {
-        if (!elements.servicesContainer || !appData.services) return;
-        
-        const lang = appState.currentLang;
-        const services = appData.services[lang] || [];
-        
-        elements.servicesContainer.innerHTML = '';
-        
-        services.forEach(service => {
-            const serviceCard = document.createElement('div');
-            serviceCard.className = 'service-card';
-            serviceCard.innerHTML = `
-                <div class="service-icon">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <h4>${service.title}</h4>
-                <p>${service.description}</p>
-            `;
-            elements.servicesContainer.appendChild(serviceCard);
-        });
     }
     
     function loadSkills() {

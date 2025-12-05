@@ -11,16 +11,15 @@ document.addEventListener('DOMContentLoaded', function() {
         langToggle: document.getElementById('lang-toggle'),
         hamburger: document.getElementById('hamburger'),
         navMenu: document.getElementById('nav-menu'),
-        siteTitle: document.getElementById('site-title'),
         heroName: document.getElementById('hero-name'),
         heroRole: document.getElementById('hero-role'),
         heroTagline: document.getElementById('hero-tagline'),
         servicesContainer: document.getElementById('services-container'),
         skillsContainer: document.getElementById('skills-container'),
         projectsContainer: document.getElementById('projects-container'),
-        messageForm: document.getElementById('message-form'),
-        formMessage: document.getElementById('form-message'),
-        copyrightText: document.getElementById('copyright-text')
+        copyrightText: document.getElementById('copyright-text'),
+        profileImg: document.getElementById('profile-img'),
+        cvDownload: document.getElementById('cv-download')
     };
     
     // ============ تحميل البيانات ============
@@ -33,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
             initializeApp();
         } catch (error) {
             console.error('خطأ في تحميل البيانات:', error);
-            // استخدام بيانات افتراضية في حالة الخطأ
             appData = getDefaultData();
             initializeApp();
         }
@@ -64,14 +62,17 @@ document.addEventListener('DOMContentLoaded', function() {
         // تهيئة تبديل اللغة
         initLanguageToggle();
         
+        // تهيئة الصورة الشخصية
+        initProfileImage();
+        
+        // تهيئة زر تحميل السيرة الذاتية
+        initCvDownload();
+        
         // تحديث جميع النصوص بناءً على اللغة الحالية
         updateAllTexts();
         
         // تحميل المحتوى الديناميكي
         loadDynamicContent();
-        
-        // تهيئة نموذج الاتصال
-        initContactForm();
         
         // إعداد حدث التمرير للنافذة
         setupScrollEvents();
@@ -141,6 +142,62 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
+    // ============ تهيئة الصورة الشخصية ============
+    function initProfileImage() {
+        if (elements.profileImg) {
+            // إضافة حدث عند فشل تحميل الصورة
+            elements.profileImg.addEventListener('error', function() {
+                // إذا فشل تحميل الصورة، اعرض أيقونة بديلة
+                this.parentElement.innerHTML = `
+                    <div class="avatar-fallback">
+                        <i class="fas fa-user"></i>
+                        <span>أضف صورتك</span>
+                    </div>
+                `;
+                
+                // أضف أنماط الأيقونة البديلة
+                const style = document.createElement('style');
+                style.textContent = `
+                    .avatar-fallback {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        background: linear-gradient(135deg, var(--primary), var(--secondary));
+                        color: white;
+                    }
+                    .avatar-fallback i {
+                        font-size: 4rem;
+                        margin-bottom: 1rem;
+                    }
+                    .avatar-fallback span {
+                        font-size: 0.9rem;
+                        font-weight: 600;
+                    }
+                `;
+                document.head.appendChild(style);
+            });
+        }
+    }
+    
+    // ============ تهيئة زر تحميل السيرة الذاتية ============
+    function initCvDownload() {
+        if (elements.cvDownload) {
+            elements.cvDownload.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const lang = appState.currentLang;
+                const message = lang === 'ar' 
+                    ? 'سيتم إضافة رابط تحميل السيرة الذاتية قريبًا.'
+                    : 'CV download link will be added soon.';
+                
+                alert(message);
+            });
+        }
+    }
+    
     // ============ تحديث جميع النصوص ============
     function updateAllTexts() {
         // تحديث النصوص الأساسية
@@ -154,11 +211,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const lang = appState.currentLang;
         const t = appData.translations[lang];
         const user = appData.user;
-        
-        // تحديث العنوان
-        if (elements.siteTitle) {
-            elements.siteTitle.textContent = user[`name_${lang}`];
-        }
         
         // تحديث قسم البطل
         if (elements.heroName) {
@@ -178,13 +230,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
             if (t && t[key]) {
-                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                    element.placeholder = t[key];
-                } else if (element.tagName === 'LABEL') {
-                    element.textContent = t[key];
-                } else {
-                    element.textContent = t[key];
-                }
+                element.textContent = t[key];
             }
         });
         
@@ -192,8 +238,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (elements.copyrightText) {
             const year = new Date().getFullYear();
             elements.copyrightText.textContent = lang === 'ar' 
-                ? `© ${year} أسيل الزواهرة. جميع الحقوق محفوظة.`
-                : `© ${year} Aseel Alzawahreh. All rights reserved.`;
+                ? `© ${year} Dashboard Pro Portfolio. جميع الحقوق محفوظة.`
+                : `© ${year} Dashboard Pro Portfolio. All rights reserved.`;
         }
     }
     
@@ -205,9 +251,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function updateDynamicContent() {
-        updateServices();
-        updateSkills();
-        updateProjects();
+        loadServices();
+        loadSkills();
+        loadProjects();
     }
     
     function loadServices() {
@@ -232,17 +278,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    function updateServices() {
-        loadServices(); // إعادة تحميل الخدمات باللغة الجديدة
-    }
-    
     function loadSkills() {
         if (!elements.skillsContainer || !appData.skills) return;
         
         const lang = appState.currentLang;
         elements.skillsContainer.innerHTML = '';
         
-        // التحقق من وجود بيانات المهارات
         if (Object.keys(appData.skills).length === 0) {
             elements.skillsContainer.innerHTML = '<p style="text-align:center; color:var(--muted);">جاري تحميل المهارات...</p>';
             return;
@@ -265,16 +306,12 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             skillCategory.innerHTML = `
-                <h3>${category[`title_${lang}`]}</h3>
+                <h3><i class="${category.icon || 'fas fa-star'}"></i> ${category[`title_${lang}`]}</h3>
                 ${skillsHTML}
             `;
             
             elements.skillsContainer.appendChild(skillCategory);
         });
-    }
-    
-    function updateSkills() {
-        loadSkills(); // إعادة تحميل المهارات باللغة الجديدة
     }
     
     function loadProjects() {
@@ -284,7 +321,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const t = appData.translations[lang];
         elements.projectsContainer.innerHTML = '';
         
-        // التحقق من وجود بيانات المشاريع
         if (!appData.projects || appData.projects.length === 0) {
             elements.projectsContainer.innerHTML = '<p style="text-align:center; color:var(--muted);">جاري تحميل المشاريع...</p>';
             return;
@@ -294,7 +330,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const projectCard = document.createElement('div');
             projectCard.className = 'project-card';
             
-            // إنشاء العلامات
             let tagsHTML = '';
             if (project.tags && project.tags.length > 0) {
                 tagsHTML = '<div class="project-tags">';
@@ -323,58 +358,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    function updateProjects() {
-        loadProjects(); // إعادة تحميل المشاريع باللغة الجديدة
-    }
-    
-    // ============ نموذج الاتصال ============
-    function initContactForm() {
-        if (!elements.messageForm) return;
-        
-        elements.messageForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const lang = appState.currentLang;
-            const t = appData.translations[lang];
-            
-            // الحصول على قيم الحقول
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const message = document.getElementById('message').value.trim();
-            
-            // التحقق من الحقول
-            if (!name || !email || !message) {
-                showFormMessage(t.fill_fields || '⚠️ يرجى ملء جميع الحقول.', 'error');
-                return;
-            }
-            
-            // في موقع حقيقي، هنا ترسل البيانات إلى الخادم
-            // لكن في النسخة الثابتة، نعرض رسالة نجاح فقط
-            
-            // عرض رسالة النجاح
-            showFormMessage(t.message_sent || '✅ تم إرسال الرسالة. سأعاود التواصل معك قريبًا.', 'success');
-            
-            // إعادة تعيين النموذج
-            elements.messageForm.reset();
-            
-            // إخفاء الرسالة بعد 5 ثوان
-            setTimeout(() => {
-                elements.formMessage.style.display = 'none';
-            }, 5000);
-        });
-    }
-    
-    function showFormMessage(text, type) {
-        if (!elements.formMessage) return;
-        
-        elements.formMessage.textContent = text;
-        elements.formMessage.className = `form-message ${type}`;
-        elements.formMessage.style.display = 'block';
-        
-        // التمرير إلى الرسالة
-        elements.formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-    
     // ============ أحداث التمرير ============
     function setupScrollEvents() {
         // تحديث الرابط النشط في شريط التنقل أثناء التمرير
@@ -393,7 +376,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const targetElement = document.querySelector(href);
                 
                 if (targetElement) {
-                    const offset = 80; // تعويض لشريط التنقل الثابت
+                    const offset = 80;
                     const targetPosition = targetElement.offsetTop - offset;
                     
                     window.scrollTo({

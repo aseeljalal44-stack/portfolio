@@ -1,0 +1,191 @@
+{
+  "user": {
+    "name_ar": "أسيل الزواهرة",
+    "name_en": "Aseel Alzawahreh",
+    "role_ar": "مطور لوحات تحكّم تفاعلية",
+    "role_en": "Interactive Dashboard Developer",
+    "tagline_ar": "تحويل البيانات إلى تطبيقات ذكية وسهلة الاستخدام",
+    "tagline_en": "Transforming data into smart, usable web apps",
+    "email": "aseeljalal45@gmail.com",
+    "github": "https://github.com/aseeljalal44-stack",
+    "whatsapp": "+962785094075",
+    "linkedin": ""
+  },
+  
+  "projects": [
+    {
+      "icon": "👔",
+      "title_ar": "لوحة تحكم الموارد البشرية الذكية",
+      "title_en": "Smart HR Analytics Dashboard",
+      "desc_ar": "نظام تفاعلي لمعالجة أي ملف Excel وتحويله إلى لوحة قيادة ذكية للموارد البشرية.",
+      "desc_en": "An intelligent HR system that transforms any Excel file into a smart HR analytics dashboard.",
+      "tags": ["HR", "Excel Automation", "KPI", "Field Detection"],
+      "url": "https://hrdashbord-28auw66gfafgeiav5vdnks.streamlit.app/",
+      "github_url": "https://github.com/aseeljalal44-stack"
+    },
+    {
+      "icon": "📈",
+      "title_ar": "لوحة تحليل المبيعات المتقدمة – نسخة المؤسسات",
+      "title_en": "Advanced Sales Analytics – Enterprise",
+      "desc_ar": "تحليل متقدم للبيانات المعقّدة مع اكتشاف تلقائي للحقول وتحليلات متمكّنة.",
+      "desc_en": "Advanced analytics for complex datasets with automatic field detection and deep KPI insights.",
+      "tags": ["Sales", "Enterprise", "Automation", "Excel"],
+      "url": "https://salesdashboards-bvbbbq6v7m9p7h7yrcwww2.streamlit.app/",
+      "github_url": "https://github.com/aseeljalal44-stack"
+    },
+    {
+      "icon": "🛍️",
+      "title_ar": "لوحة تحكم المبيعات الذكية – الإصدار السريع",
+      "title_en": "Smart Sales Dashboard – Lite",
+      "desc_ar": "نسخة خفيفة وسريعة لعرض المؤشرات الأساسية من ملفات Excel/CSV.",
+      "desc_en": "A lightweight, fast dashboard for essential KPIs using Excel/CSV uploads.",
+      "tags": ["Sales", "Lite", "Excel", "KPIs"],
+      "url": "https://salesdashboards.streamlit.app/",
+      "github_url": "https://github.com/aseeljalal44-stack"
+    }
+  ],
+  
+  "skills": {
+    "data_analysis": {
+      "title_ar": "تحليل البيانات",
+      "title_en": "Data Analysis",
+      "items": [
+        {
+          "name": "Pandas",
+          "desc_ar": "تحليل ومعالجة البيانات",
+          "desc_en": "Data manipulation"
+        },
+        {
+          "name": "NumPy",
+          "desc_ar": "حسابات علمية",
+          "desc_en": "Numerical computing"
+        },
+        {
+          "name": "SQL",
+          "desc_ar": "استعلامات قواعد البيانات",
+          "desc_en": "DB queries"
+        }
+      ]
+    },
+    "streamlit_dev": {
+      "title_ar": "تطوير Streamlit",
+      "title_en": "Streamlit Development",
+      "items": [
+        {
+          "name": "Streamlit",
+          "desc_ar": "تطبيقات ويب تفاعلية",
+          "desc_en": "Interactive apps"
+        },
+        {
+          "name": "Plotly",
+          "desc_ar": "تصورات تفاعلية",
+          "desc_en": "Interactive visualizations"
+        },
+        {
+          "name": "Altair",
+          "desc_ar": "تصورات إحصائية",
+          "desc_en": "Statistical viz"
+        }
+      ]
+    },
+    "automation": {
+      "title_ar": "أتمتة",
+      "title_en": "Automation",
+      "items": [
+        {
+          "name": "Python",
+          "desc_ar": "برمجة وأتمتة",
+          "desc_en": "Programming & automation"
+        },
+        {
+          "name": "OpenPyXL",
+          "desc_ar": "أتمتة Excel",
+          "desc_en": "Excel automation"
+        },
+        {
+          "name": "APScheduler",
+          "desc_ar": "جدولة المهام",
+          "desc_en": "Job scheduling"
+        }
+      ]
+    }
+  },
+  
+  "services": {
+    "ar": [
+      {
+        "title": "تطوير لوحات تحكم",
+        "description": "بناء لوحات تحكم تفاعلية مخصصة"
+      },
+      {
+        "title": "تحويل Excel إلى WebApp",
+        "description": "تحويل الملفات التقليدية إلى تطبيقات ويب"
+      },
+      {
+        "title": "أتمتة العمليات",
+        "description": "أتمتة المهام الروتينية لتحسين الكفاءة"
+      },
+      {
+        "title": "تحليل البيانات",
+        "description": "استخراج تقارير وInsight قابلة للتنفيذ"
+      }
+    ],
+    "en": [
+      {
+        "title": "Dashboard Development",
+        "description": "Building custom interactive dashboards"
+      },
+      {
+        "title": "Excel → WebApp",
+        "description": "Converting traditional files into web applications"
+      },
+      {
+        "title": "Process Automation",
+        "description": "Automating routine tasks to improve efficiency"
+      },
+      {
+        "title": "Data Analysis",
+        "description": "Actionable reporting and insights"
+      }
+    ]
+  },
+  
+  "translations": {
+    "ar": {
+      "about": "عنّي",
+      "skills": "المهارات",
+      "projects": "المشاريع",
+      "contact": "تواصل",
+      "services": "الخدمات",
+      "view_projects": "عرض المشاريع",
+      "contact_me": "تواصل معي",
+      "view_live": "عرض التطبيق",
+      "view_code": "عرض الكود",
+      "send_message": "إرسال رسالة",
+      "name": "الاسم",
+      "email": "البريد الإلكتروني",
+      "message": "الرسالة",
+      "get_in_touch": "تواصل معي",
+      "message_sent": "✅ تم إرسال الرسالة. سأعاود التواصل معك قريبًا.",
+      "fill_fields": "⚠️ يرجى ملء جميع الحقول."
+    },
+    "en": {
+      "about": "About",
+      "skills": "Skills",
+      "projects": "Projects",
+      "contact": "Contact",
+      "services": "Services",
+      "view_projects": "View Projects",
+      "contact_me": "Contact Me",
+      "view_live": "View App",
+      "view_code": "View Code",
+      "send_message": "Send Message",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "get_in_touch": "Get in Touch",
+      "message_sent": "✅ Message sent. I'll get back to you soon.",
+      "fill_fields": "⚠️ Please fill all fields."
+    }
+  }
+}

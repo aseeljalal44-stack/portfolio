@@ -240,7 +240,7 @@
       },
       {
         "title": "Workflow Automation",
-        "description": "Transforming manual processes into fully automated work flows"
+        "description": "Transforming manual processes into fully automated work systems"
       },
       {
         "title": "Data Analytics Consulting",
@@ -253,30 +253,48 @@
     "ar": {
       "about": "عنّي",
       "skills": "المهارات",
+      "skills_title": "المهارات التقنية",
       "projects": "المشاريع",
+      "projects_title": "أبرز المشاريع",
       "contact": "تواصل",
+      "contact_title": "طرق التواصل",
       "services": "الخدمات",
+      "services_title": "الخدمات المقدمة",
+      "availability": "التوافر",
       "view_projects": "عرض المشاريع",
       "contact_me": "تواصل معي",
       "view_live": "عرض التطبيق",
       "view_code": "عرض الكود",
-      "availability": "التوافر",
+      "get_in_touch": "تواصل معي",
       "available_for_projects": "متاح للمشاريع الجديدة",
-      "about_text": "متخصص في هندسة حلول البيانات وتطوير لوحات التحكم التفاعلية. أمتلك خبرة في تحويل العمليات اليدوية إلى أنظمة مؤتمتة بالكامل، وتحويل ملفات Excel الثابتة إلى تطبيقات ويب ديناميكية تدعم اتخاذ القرارات الاستراتيجية. أركز على بناء حلول قابلة للتطوير تلبي احتياجات الأعمال المعقدة."
+      "about_text": "متخصص في هندسة حلول البيانات وتطوير لوحات التحكم التفاعلية. أمتلك خبرة في تحويل العمليات اليدوية إلى أنظمة مؤتمتة بالكامل، وتحويل ملفات Excel الثابتة إلى تطبيقات ويب ديناميكية تدعم اتخاذ القرارات الاستراتيجية. أركز على بناء حلول قابلة للتطوير تلبي احتياجات الأعمال المعقدة.",
+      "email_label": "البريد الإلكتروني",
+      "whatsapp_label": "واتساب",
+      "github_label": "GitHub",
+      "send_message": "إرسال رسالة"
     },
     "en": {
-      "about": "About",
+      "about": "About Me",
       "skills": "Skills",
+      "skills_title": "Technical Skills",
       "projects": "Projects",
+      "projects_title": "Featured Projects",
       "contact": "Contact",
+      "contact_title": "Contact Methods",
       "services": "Services",
+      "services_title": "Services Offered",
+      "availability": "Availability",
       "view_projects": "View Projects",
       "contact_me": "Contact Me",
       "view_live": "View App",
       "view_code": "View Code",
-      "availability": "Availability",
+      "get_in_touch": "Get in Touch",
       "available_for_projects": "Available for new projects",
-      "about_text": "Specialized in data solutions engineering and interactive dashboard development. I possess expertise in transforming manual processes into fully automated systems, and converting static Excel files into dynamic web applications that support strategic decision-making. I focus on building scalable solutions that address complex business needs."
+      "about_text": "Specialized in data solutions engineering and interactive dashboard development. I possess expertise in transforming manual processes into fully automated systems, and converting static Excel files into dynamic web applications that support strategic decision-making. I focus on building scalable solutions that address complex business needs.",
+      "email_label": "Email Address",
+      "whatsapp_label": "WhatsApp",
+      "github_label": "GitHub",
+      "send_message": "Send Message"
     }
   }
 }

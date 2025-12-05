@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="بورتفوليو خبير حلول البيانات التفاعلية | Interactive Data Solutions Expert Portfolio">
-    <title>Portfolio | AA | Data Solutions</title>
+    <title>Aseel Alzawahreh | Data Solutions Expert</title>
     
     <!-- الخطوط -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -19,31 +19,13 @@
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <!-- شريط التنقل العلوي -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <span id="site-title">AA | Data Solutions</span>
-            </div>
-            
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="#about" data-i18n="about">عنّي</a></li>
-                <li><a href="#skills" data-i18n="skills">المهارات</a></li>
-                <li><a href="#projects" data-i18n="projects">المشاريع</a></li>
-                <li><a href="#contact" data-i18n="contact">تواصل</a></li>
-                <li>
-                    <button class="lang-toggle" id="lang-toggle">
-                        <span class="lang-text">EN</span>
-                        <i class="fas fa-globe"></i>
-                    </button>
-                </li>
-            </ul>
-            
-            <button class="hamburger" id="hamburger">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </nav>
+    <!-- زر تبديل اللغة الجديد (في أعلى اليمين) -->
+    <div class="simple-lang-toggle">
+        <button id="lang-toggle-simple">
+            <i class="fas fa-globe"></i>
+            <span id="lang-text-simple">EN</span>
+        </button>
+    </div>
 
     <!-- القسم الرئيسي (Hero) -->
     <header class="hero">
@@ -62,15 +44,14 @@
             </div>
             
             <div class="profile-image">
-                <!-- الصورة الشخصية - تأكد من وجودها في assets/images/profile.jpg -->
+                <!-- ضع صورتك هنا باسم profile.jpg في مجلد assets/images -->
                 <img src="assets/images/profile.jpg" alt="أسيل الزواهرة - خبير حلول البيانات" 
-                     id="profile-img"
-                     onerror="this.style.display='none'; document.getElementById('avatar-fallback').style.display='flex';">
-                <!-- البديل في حالة عدم تحميل الصورة -->
+                     id="profile-img" 
+                     onerror="this.onerror=null; this.style.display='none'; document.getElementById('avatar-fallback').style.display='flex';">
                 <div class="avatar-fallback" id="avatar-fallback">
                     <i class="fas fa-user-circle"></i>
-                    <p>أسيل الزواهرة</p>
-                    <small>Data Solutions Expert</small>
+                    <p id="fallback-name">أسيل الزواهرة</p>
+                    <small id="fallback-title">Data Solutions Expert</small>
                 </div>
             </div>
         </div>
@@ -86,13 +67,13 @@
             </div>
             
             <div class="about-content">
-                <p class="about-text" id="about-text">
-                    متخصص في تطوير لوحات التحكم التفاعلية. أمتلك خبرة في تحويل العمليات اليدوية إلى أنظمة مؤتمتة بالكامل، وتحويل ملفات Excel الثابتة إلى تطبيقات ويب ديناميكية تدعم اتخاذ القرارات الاستراتيجية. أركز على بناء حلول قابلة للتطوير تلبي احتياجات الأعمال المعقدة.
+                <p class="about-text" data-i18n="about_text">
+                    متخصص في هندسة حلول البيانات وتطوير لوحات التحكم التفاعلية. أمتلك خبرة في تحويل العمليات اليدوية إلى أنظمة مؤتمتة بالكامل، وتحويل ملفات Excel الثابتة إلى تطبيقات ويب ديناميكية تدعم اتخاذ القرارات الاستراتيجية. أركز على بناء حلول قابلة للتطوير تلبي احتياجات الأعمال المعقدة.
                 </p>
                 
                 <!-- الخدمات -->
                 <div class="services-section">
-                    <h3 class="services-title" data-i18n="services">الخدمات</h3>
+                    <h3 class="services-title" data-i18n="services_title">الخدمات المقدمة</h3>
                     <div class="services-grid" id="services-container">
                         <!-- سيتم تعبئته بواسطة JavaScript -->
                     </div>
@@ -103,7 +84,7 @@
         <!-- قسم المهارات -->
         <section id="skills" class="section section-dark">
             <div class="section-header">
-                <h2 class="section-title" data-i18n="skills">المهارات</h2>
+                <h2 class="section-title" data-i18n="skills_title">المهارات التقنية</h2>
                 <div class="section-divider"></div>
             </div>
             
@@ -115,7 +96,7 @@
         <!-- قسم المشاريع -->
         <section id="projects" class="section">
             <div class="section-header">
-                <h2 class="section-title" data-i18n="projects">المشاريع</h2>
+                <h2 class="section-title" data-i18n="projects_title">أبرز المشاريع</h2>
                 <div class="section-divider"></div>
             </div>
             
@@ -124,10 +105,10 @@
             </div>
         </section>
 
-        <!-- قسم التواصل (بدون نموذج) -->
+        <!-- قسم التواصل -->
         <section id="contact" class="section section-dark">
             <div class="section-header">
-                <h2 class="section-title" data-i18n="contact">تواصل</h2>
+                <h2 class="section-title" data-i18n="contact_title">طرق التواصل</h2>
                 <div class="section-divider"></div>
             </div>
             
@@ -136,7 +117,7 @@
                     <div class="contact-icon">
                         <i class="fas fa-envelope"></i>
                     </div>
-                    <h3>البريد الإلكتروني</h3>
+                    <h3 data-i18n="email_label">البريد الإلكتروني</h3>
                     <a href="mailto:aseeljalal45@gmail.com" class="contact-link">aseeljalal45@gmail.com</a>
                 </div>
                 
@@ -144,7 +125,7 @@
                     <div class="contact-icon">
                         <i class="fab fa-whatsapp"></i>
                     </div>
-                    <h3>واتساب</h3>
+                    <h3 data-i18n="whatsapp_label">واتساب</h3>
                     <span class="contact-info">+962785094075</span>
                 </div>
                 
@@ -152,7 +133,7 @@
                     <div class="contact-icon">
                         <i class="fab fa-github"></i>
                     </div>
-                    <h3>GitHub</h3>
+                    <h3 data-i18n="github_label">GitHub</h3>
                     <a href="https://github.com/aseeljalal44-stack" target="_blank" class="contact-link">github.com/aseeljalal44-stack</a>
                 </div>
                 
@@ -160,8 +141,8 @@
                     <div class="contact-icon">
                         <i class="fas fa-clock"></i>
                     </div>
-                    <h3 id="availability-title">التوافر</h3>
-                    <span class="contact-info" id="availability-text">متاح للمشاريع الجديدة</span>
+                    <h3 data-i18n="availability">التوافر</h3>
+                    <span class="contact-info" data-i18n="available_for_projects">متاح للمشاريع الجديدة</span>
                 </div>
             </div>
         </section>
@@ -171,14 +152,14 @@
     <footer class="footer">
         <div class="footer-content">
             <p class="copyright" id="copyright-text">
-                © 2025 AA | Data Solutions. جميع الحقوق محفوظة.
+                © 2025 جميع الحقوق محفوظة. <strong>Aseel Alzawahreh</strong>
             </p>
             
             <div class="social-links">
                 <a href="https://github.com/aseeljalal44-stack" target="_blank" aria-label="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="#" target="_blank" aria-label="LinkedIn" id="linkedin-link">
+                <a href="#" target="_blank" aria-label="LinkedIn">
                     <i class="fab fa-linkedin"></i>
                 </a>
                 <a href="mailto:aseeljalal45@gmail.com" aria-label="Email">

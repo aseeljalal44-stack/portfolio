@@ -17,7 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
         copyrightText: document.getElementById('copyright-text'),
         profileImg: document.getElementById('profile-img'),
         fallbackName: document.getElementById('fallback-name'),
-        fallbackTitle: document.getElementById('fallback-title')
+        fallbackTitle: document.getElementById('fallback-title'),
+        ctaButton: document.getElementById('cta-button')
     };
     
     // ============ تحميل البيانات ============
@@ -40,10 +41,10 @@ document.addEventListener('DOMContentLoaded', function() {
             user: {
                 name_ar: "أسيل الزواهرة",
                 name_en: "Aseel Alzawahreh",
-                role_ar: "خبير حلول البيانات التفاعلية",
-                role_en: "Interactive Data Solutions Expert",
-                tagline_ar: "أحول البيانات المعقدة إلى لوحات تحكم ذكية وقابلة للتنفيذ",
-                tagline_en: "Transforming complex data into actionable, intelligent dashboards"
+                role_ar: "Full-Stack Developer",
+                role_en: "Full-Stack Developer",
+                tagline_ar: "متخصص في بناء لوحات تحكم وأدوات ذكية تساعد الشركات على فهم بياناتها واتخاذ قرارات أسرع",
+                tagline_en: "Specialized in building dashboards and smart tools that help companies understand their data and make faster decisions"
             },
             projects: [],
             skills: {},
@@ -62,6 +63,12 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // تهيئة الصورة الشخصية
         initProfileImage();
+        
+        // تهيئة تأثيرات التمرير
+        initScrollAnimations();
+        
+        // تهيئة زر CTA
+        initCTAButton();
         
         // تحديث جميع النصوص بناءً على اللغة الحالية
         updateAllTexts();
@@ -165,6 +172,41 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
+    // ============ تهيئة زر CTA ============
+    function initCTAButton() {
+        if (elements.ctaButton) {
+            elements.ctaButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                    const offset = 80;
+                    const targetPosition = contactSection.offsetTop - offset;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        }
+    }
+    
+    // ============ تأثيرات الظهور عند التمرير ============
+    function initScrollAnimations() {
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        fadeElements.forEach(el => observer.observe(el));
+    }
+    
     // ============ تحديث جميع النصوص ============
     function updateAllTexts() {
         // تحديث النصوص الأساسية
@@ -200,6 +242,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (elements.fallbackTitle) {
             elements.fallbackTitle.textContent = user[`role_${lang}`];
+        }
+        
+        // تحديث زر CTA
+        if (elements.ctaButton) {
+            elements.ctaButton.textContent = lang === 'ar' ? '🚀 احجز مشروعك الآن' : '🚀 Book Your Project Now';
         }
         
         // تحديث جميع النصوص المترجمة
@@ -277,13 +324,16 @@ document.addEventListener('DOMContentLoaded', function() {
             const category = appData.skills[categoryKey];
             
             const skillCategory = document.createElement('div');
-            skillCategory.className = 'skill-category';
+            skillCategory.className = 'skill-category card-hover-effect';
             
             let skillsHTML = '';
             category.items.forEach(skill => {
                 skillsHTML += `
                     <div class="skill-item">
-                        <span class="skill-name">${skill.name}</span>
+                        <div class="skill-icon-name">
+                            <i class="${skill.icon || 'fas fa-circle'} skill-item-icon"></i>
+                            <span class="skill-name">${skill.name}</span>
+                        </div>
                         <span class="skill-desc">${skill[`desc_${lang}`]}</span>
                     </div>
                 `;
@@ -312,7 +362,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         appData.projects.forEach(project => {
             const projectCard = document.createElement('div');
-            projectCard.className = 'project-card';
+            projectCard.className = 'project-card card-hover-effect';
             
             let tagsHTML = '';
             if (project.tags && project.tags.length > 0) {

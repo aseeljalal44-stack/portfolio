@@ -2,7 +2,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     // تهيئة حالة التطبيق
     const appState = {
-        currentLang: 'ar' // اللغة الافتراضية
+        currentLang: 'ar', // اللغة الافتراضية
+        isMenuOpen: false
     };
     
     // عناصر DOM المهمة
@@ -53,6 +54,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // ============ تهيئة التطبيق بعد تحميل البيانات ============
     function initializeApp() {
+        // تهيئة القائمة المتحركة
+        initMobileMenu();
+        
         // تهيئة تبديل اللغة
         initLanguageToggle();
         
@@ -69,9 +73,46 @@ document.addEventListener('DOMContentLoaded', function() {
         setupScrollEvents();
     }
     
+    // ============ القائمة المتحركة للأجهزة المحمولة ============
+    function initMobileMenu() {
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', function() {
+                appState.isMenuOpen = !appState.isMenuOpen;
+                navMenu.classList.toggle('active');
+                
+                // تغيير أيقونة القائمة
+                const icon = hamburger.querySelector('i');
+                if (appState.isMenuOpen) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // إغلاق القائمة عند النقر على رابط
+            const navLinks = navMenu.querySelectorAll('a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        appState.isMenuOpen = false;
+                        navMenu.classList.remove('active');
+                        const icon = hamburger.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            });
+        }
+    }
+    
     // ============ تبديل اللغة ============
     function initLanguageToggle() {
-        const langToggle = document.getElementById('lang-toggle-simple');
+        const langToggle = document.getElementById('lang-toggle');
         
         if (langToggle) {
             langToggle.addEventListener('click', function() {
@@ -82,14 +123,30 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.documentElement.dir = appState.currentLang === 'ar' ? 'rtl' : 'ltr';
                 document.documentElement.lang = appState.currentLang;
                 
+                // تحديث نص زر تبديل اللغة
+                const langText = langToggle.querySelector('.lang-text');
+                langText.textContent = appState.currentLang === 'ar' ? 'EN' : 'عربي';
+                
                 // تحديث جميع النصوص
                 updateAllTexts();
                 
                 // تحديث المحتوى الديناميكي
                 updateDynamicContent();
                 
-                // إعادة تحميل البيانات
+                // إعادة تحميل البيانات إذا لزم الأمر
                 reloadDynamicData();
+                
+                // إغلاق القائمة المتحركة إذا كانت مفتوحة
+                if (window.innerWidth <= 768 && appState.isMenuOpen) {
+                    appState.isMenuOpen = false;
+                    const navMenu = document.getElementById('nav-menu');
+                    if (navMenu) navMenu.classList.remove('active');
+                    const icon = document.querySelector('.hamburger i');
+                    if (icon) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                }
             });
         }
     }
@@ -161,12 +218,6 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 elements.copyrightText.innerHTML = `© ${year} All rights reserved. <strong>Aseel Alzawahreh</strong>`;
             }
-        }
-        
-        // تحديث نص زر تبديل اللغة
-        const langTextElement = document.getElementById('lang-text-simple');
-        if (langTextElement) {
-            langTextElement.textContent = lang === 'ar' ? 'EN' : 'عربي';
         }
     }
     
@@ -293,6 +344,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // ============ أحداث التمرير ============
     function setupScrollEvents() {
+        // تحديث الرابط النشط في شريط التنقل أثناء التمرير
+        window.addEventListener('scroll', function() {
+            updateActiveNavLink();
+        });
+        
         // التمرير السلس عند النقر على الروابط
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -304,7 +360,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const targetElement = document.querySelector(href);
                 
                 if (targetElement) {
-                    const offset = 60;
+                    const offset = 80;
                     const targetPosition = targetElement.offsetTop - offset;
                     
                     window.scrollTo({
@@ -313,6 +369,31 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                 }
             });
+        });
+    }
+    
+    function updateActiveNavLink() {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
+        
+        let currentSectionId = '';
+        const scrollPosition = window.scrollY + 100;
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                currentSectionId = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href');
+            if (href === `#${currentSectionId}`) {
+                link.classList.add('active');
+            }
         });
     }
     

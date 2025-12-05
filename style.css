@@ -57,14 +57,31 @@ body[dir="ltr"] .arabic-name {
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.3rem;
+    font-weight: 700;
     color: var(--light);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    background-size: 200% 200%;
+    animation: gradientMove 5s ease infinite;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
 }
 
-.arabic-name {
-    font-family: 'Tajawal', sans-serif;
-    font-weight: 800;
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.logo i {
+    font-size: 1.5rem;
+}
+
+.logo-text {
+    font-family: 'Inter', sans-serif;
 }
 
 .nav-menu {
@@ -173,7 +190,7 @@ body[dir="ltr"] .arabic-name {
     margin-top: 2rem;
 }
 
-.btn-primary, .btn-secondary {
+.btn-primary, .btn-secondary, .btn-download {
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
     text-decoration: none;
@@ -203,21 +220,52 @@ body[dir="ltr"] .arabic-name {
     border-color: var(--primary);
 }
 
-.hero-image {
-    flex: 0 0 300px;
+/* الصورة الشخصية */
+.profile-image {
+    flex: 0 0 320px;
+    height: 320px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid transparent;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+    position: relative;
+    transition: all 0.4s ease;
 }
 
-.avatar-placeholder {
-    width: 300px;
-    height: 300px;
+.profile-image::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 5rem;
-    color: white;
-    box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+    border: 2px solid transparent;
+    background: linear-gradient(135deg, var(--primary), transparent, var(--secondary));
+    z-index: -1;
+    animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.profile-image:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(139, 92, 246, 0.4);
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.profile-image:hover img {
+    transform: scale(1.08);
 }
 
 /* الأقسام العامة */
@@ -313,7 +361,7 @@ body[dir="ltr"] .arabic-name {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     padding: 0 2rem;
 }
@@ -329,18 +377,29 @@ body[dir="ltr"] .arabic-name {
 .skill-category:hover {
     border-color: var(--primary);
     box-shadow: 0 8px 20px rgba(139, 92, 246, 0.15);
+    transform: translateY(-3px);
 }
 
 .skill-category h3 {
     color: var(--light);
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.skill-category h3 i {
+    color: var(--primary);
 }
 
 .skill-item {
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 1.2rem;
     border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .skill-item:last-child {
@@ -352,13 +411,14 @@ body[dir="ltr"] .arabic-name {
 .skill-name {
     color: var(--light);
     font-weight: 600;
-    display: block;
-    margin-bottom: 0.25rem;
+    font-size: 1rem;
 }
 
 .skill-desc {
     color: var(--muted);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    text-align: left;
+    max-width: 150px;
 }
 
 /* قسم المشاريع */
@@ -456,114 +516,82 @@ body[dir="ltr"] .arabic-name {
     transform: translateY(-2px);
 }
 
-/* قسم التواصل */
-.contact-container {
-    max-width: 1200px;
+/* قسم التواصل الجديد (بدون نموذج) */
+.contact-container-simple {
+    max-width: 1000px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
     padding: 0 2rem;
 }
 
-.contact-info, .contact-form {
+.contact-card {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 2rem;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.3s;
 }
 
-.contact-title, .form-title {
-    color: var(--light);
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
+.contact-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.2);
 }
 
-.contact-details {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.contact-item {
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
     display: flex;
     align-items: center;
-    gap: 1rem;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 1.5rem;
+    color: white;
 }
 
-.contact-item i {
+.contact-card h3 {
+    color: var(--light);
+    margin-bottom: 0.75rem;
     font-size: 1.2rem;
+}
+
+.contact-link {
     color: var(--primary);
-    width: 24px;
-}
-
-.contact-label {
-    display: block;
-    color: var(--muted);
-    font-size: 0.9rem;
-    margin-bottom: 0.25rem;
-}
-
-.contact-value {
-    color: var(--light);
     text-decoration: none;
+    font-weight: 600;
     transition: color 0.3s;
-}
-
-.contact-value:hover {
-    color: var(--primary);
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    color: var(--light);
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 0.75rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    color: var(--light);
-    font-family: inherit;
-    font-size: 1rem;
-    transition: border-color 0.3s;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--primary);
-}
-
-.form-message {
-    margin-top: 1rem;
-    padding: 0.75rem;
-    border-radius: 8px;
-    font-weight: 600;
-    display: none;
-}
-
-.form-message.success {
-    background: rgba(16, 185, 129, 0.1);
-    color: var(--success);
-    border: 1px solid rgba(16, 185, 129, 0.3);
+    word-break: break-word;
     display: block;
 }
 
-.form-message.error {
-    background: rgba(239, 68, 68, 0.1);
-    color: var(--error);
-    border: 1px solid rgba(239, 68, 68, 0.3);
+.contact-link:hover {
+    color: var(--secondary);
+    text-decoration: underline;
+}
+
+.contact-info {
+    color: var(--muted);
+    font-weight: 500;
     display: block;
+}
+
+.btn-download {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    color: white;
+    margin-top: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.btn-download:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(139, 92, 246, 0.25);
 }
 
 /* التذييل */
@@ -639,7 +667,7 @@ body[dir="ltr"] .arabic-name {
     .hero-container {
         flex-direction: column;
         text-align: center;
-        gap: 2rem;
+        gap: 3rem;
     }
     
     .hero-title {
@@ -650,10 +678,10 @@ body[dir="ltr"] .arabic-name {
         font-size: 1.2rem;
     }
     
-    .avatar-placeholder {
-        width: 200px;
-        height: 200px;
-        font-size: 3rem;
+    .profile-image {
+        width: 250px;
+        height: 250px;
+        flex: 0 0 auto;
     }
     
     .section-title {
@@ -667,11 +695,13 @@ body[dir="ltr"] .arabic-name {
     
     .btn-primary, .btn-secondary {
         width: 100%;
+        max-width: 250px;
         text-align: center;
     }
     
-    .contact-container {
-        grid-template-columns: 1fr;
+    .contact-container-simple {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
     }
     
     .footer-content {
@@ -687,7 +717,8 @@ body[dir="ltr"] .arabic-name {
     }
     
     .projects-grid,
-    .skills-container {
+    .skills-container,
+    .contact-container-simple {
         grid-template-columns: 1fr;
     }
     
@@ -697,5 +728,10 @@ body[dir="ltr"] .arabic-name {
     
     .section {
         padding: 3rem 0;
+    }
+    
+    .profile-image {
+        width: 220px;
+        height: 220px;
     }
 }

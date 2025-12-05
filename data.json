@@ -12,7 +12,121 @@
     "linkedin": ""
   },
   
-  // باقي المحتوى كما هو
+  "projects": [
+    {
+      "icon": "👔",
+      "title_ar": "لوحة تحكم الموارد البشرية الذكية",
+      "title_en": "Smart HR Analytics Dashboard",
+      "desc_ar": "نظام تفاعلي لمعالجة أي ملف Excel وتحويله إلى لوحة قيادة ذكية للموارد البشرية.",
+      "desc_en": "An intelligent HR system that transforms any Excel file into a smart HR analytics dashboard.",
+      "tags": ["HR", "Excel Automation", "KPI", "Field Detection"],
+      "url": "https://hrdashbord-28auw66gfafgeiav5vdnks.streamlit.app/",
+      "github_url": "https://github.com/aseeljalal44-stack"
+    },
+    {
+      "icon": "📈",
+      "title_ar": "لوحة تحليل المبيعات المتقدمة – نسخة المؤسسات",
+      "title_en": "Advanced Sales Analytics – Enterprise",
+      "desc_ar": "تحليل متقدم للبيانات المعقّدة مع اكتشاف تلقائي للحقول وتحليلات متمكّنة.",
+      "desc_en": "Advanced analytics for complex datasets with automatic field detection and deep KPI insights.",
+      "tags": ["Sales", "Enterprise", "Automation", "Excel"],
+      "url": "https://salesdashboards-bvbbbq6v7m9p7h7yrcwww2.streamlit.app/",
+      "github_url": "https://github.com/aseeljalal44-stack"
+    },
+    {
+      "icon": "🛍️",
+      "title_ar": "لوحة تحكم المبيعات الذكية – الإصدار السريع",
+      "title_en": "Smart Sales Dashboard – Lite",
+      "desc_ar": "نسخة خفيفة وسريعة لعرض المؤشرات الأساسية من ملفات Excel/CSV.",
+      "desc_en": "A lightweight, fast dashboard for essential KPIs using Excel/CSV uploads.",
+      "tags": ["Sales", "Lite", "Excel", "KPIs"],
+      "url": "https://salesdashboards.streamlit.app/",
+      "github_url": "https://github.com/aseeljalal44-stack"
+    }
+  ],
+  
+  "skills": {
+    "frontend": {
+      "title_ar": "تطوير الواجهات",
+      "title_en": "Frontend Development",
+      "icon": "fas fa-paint-brush",
+      "items": [
+        {"name": "HTML5", "desc_ar": "بناء الهيكل الأساسي", "desc_en": "Structure building", "icon": "fab fa-html5"},
+        {"name": "CSS3", "desc_ar": "التصميم والتنسيق", "desc_en": "Styling & layout", "icon": "fab fa-css3-alt"},
+        {"name": "JavaScript", "desc_ar": "التفاعلية والديناميكية", "desc_en": "Interactivity", "icon": "fab fa-js"},
+        {"name": "Bootstrap", "desc_ar": "إطار عمل متجاوب", "desc_en": "Responsive framework", "icon": "fab fa-bootstrap"}
+      ]
+    },
+    "backend": {
+      "title_ar": "تطوير الخلفية",
+      "title_en": "Backend Development",
+      "icon": "fas fa-server",
+      "items": [
+        {"name": "Python", "desc_ar": "برمجة الخوادم", "desc_en": "Server programming", "icon": "fab fa-python"},
+        {"name": "FastAPI", "desc_ar": "واجهات API سريعة", "desc_en": "Fast APIs", "icon": "fas fa-bolt"},
+        {"name": "Flask", "desc_ar": "إطار ويب خفيف", "desc_en": "Lightweight web framework", "icon": "fas fa-flask"}
+      ]
+    },
+    "data": {
+      "title_ar": "علوم البيانات",
+      "title_en": "Data Science",
+      "icon": "fas fa-chart-line",
+      "items": [
+        {"name": "Pandas", "desc_ar": "تحليل ومعالجة البيانات", "desc_en": "Data analysis", "icon": "fas fa-table"},
+        {"name": "NumPy", "desc_ar": "حسابات علمية", "desc_en": "Scientific computing", "icon": "fas fa-calculator"},
+        {"name": "Data Visualization", "desc_ar": "تصور البيانات", "desc_en": "Data visualization", "icon": "fas fa-chart-bar"}
+      ]
+    },
+    "tools": {
+      "title_ar": "أدوات التطوير",
+      "title_en": "Development Tools",
+      "icon": "fas fa-tools",
+      "items": [
+        {"name": "Git & GitHub", "desc_ar": "التحكم بالإصدارات", "desc_en": "Version control", "icon": "fab fa-git-alt"},
+        {"name": "Streamlit", "desc_ar": "لوحات التحكم التفاعلية", "desc_en": "Interactive dashboards", "icon": "fas fa-sliders-h"},
+        {"name": "VS Code", "desc_ar": "محرر النصوص", "desc_en": "Code editor", "icon": "fas fa-code"}
+      ]
+    }
+  },
+  
+  "services": {
+    "ar": [
+      {
+        "title": "هندسة لوحات التحكم",
+        "description": "تصميم وتطوير لوحات تحكم تفاعلية مخصصة للبيانات الضخمة"
+      },
+      {
+        "title": "تحويل البيانات إلى تطبيقات",
+        "description": "تحليل وتطوير أنظمة بيانات متكاملة من الملفات التقليدية"
+      },
+      {
+        "title": "أتمتة سير العمل",
+        "description": "تحويل العمليات اليدوية إلى أنظمة عمل مؤتمتة بالكامل"
+      },
+      {
+        "title": "استشارات تحليل البيانات",
+        "description": "توفير رؤى تنفيذية وخطط عمل قائمة على البيانات"
+      }
+    ],
+    "en": [
+      {
+        "title": "Dashboard Engineering",
+        "description": "Design and development of custom interactive dashboards for big data"
+      },
+      {
+        "title": "Data-to-App Transformation",
+        "description": "Analysis and development of integrated data systems from traditional files"
+      },
+      {
+        "title": "Workflow Automation",
+        "description": "Transforming manual processes into fully automated work systems"
+      },
+      {
+        "title": "Data Analytics Consulting",
+        "description": "Providing executive insights and data-driven action plans"
+      }
+    ]
+  },
   
   "translations": {
     "ar": {

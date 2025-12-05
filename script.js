@@ -19,7 +19,9 @@ document.addEventListener('DOMContentLoaded', function() {
         projectsContainer: document.getElementById('projects-container'),
         copyrightText: document.getElementById('copyright-text'),
         profileImg: document.getElementById('profile-img'),
-        cvDownload: document.getElementById('cv-download')
+        aboutText: document.getElementById('about-text'),
+        availabilityTitle: document.getElementById('availability-title'),
+        availabilityText: document.getElementById('availability-text')
     };
     
     // ============ تحميل البيانات ============
@@ -42,10 +44,10 @@ document.addEventListener('DOMContentLoaded', function() {
             user: {
                 name_ar: "أسيل الزواهرة",
                 name_en: "Aseel Alzawahreh",
-                role_ar: "مطور لوحات تحكّم تفاعلية",
-                role_en: "Interactive Dashboard Developer",
-                tagline_ar: "تحويل البيانات إلى تطبيقات ذكية وسهلة الاستخدام",
-                tagline_en: "Transforming data into smart, usable web apps"
+                role_ar: "خبير حلول البيانات التفاعلية",
+                role_en: "Interactive Data Solutions Expert",
+                tagline_ar: "أحول البيانات المعقدة إلى لوحات تحكم ذكية وقابلة للتنفيذ",
+                tagline_en: "Transforming complex data into actionable, intelligent dashboards"
             },
             projects: [],
             skills: {},
@@ -62,11 +64,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // تهيئة تبديل اللغة
         initLanguageToggle();
         
-        // تهيئة الصورة الشخصية
+        // تهيئة تحميل الصورة
         initProfileImage();
-        
-        // تهيئة زر تحميل السيرة الذاتية
-        initCvDownload();
         
         // تحديث جميع النصوص بناءً على اللغة الحالية
         updateAllTexts();
@@ -142,72 +141,22 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // ============ تهيئة الصورة الشخصية ============
+    // ============ تحميل الصورة الشخصية ============
     function initProfileImage() {
         if (elements.profileImg) {
-            // إضافة حدث عند فشل تحميل الصورة
-            elements.profileImg.addEventListener('error', function() {
-                // إذا فشل تحميل الصورة، اعرض أيقونة بديلة
-                this.parentElement.innerHTML = `
-                    <div class="avatar-fallback">
-                        <i class="fas fa-user"></i>
-                        <span>أضف صورتك</span>
-                    </div>
-                `;
-                
-                // أضف أنماط الأيقونة البديلة
-                const style = document.createElement('style');
-                style.textContent = `
-                    .avatar-fallback {
-                        width: 100%;
-                        height: 100%;
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        justify-content: center;
-                        background: linear-gradient(135deg, var(--primary), var(--secondary));
-                        color: white;
-                    }
-                    .avatar-fallback i {
-                        font-size: 4rem;
-                        margin-bottom: 1rem;
-                    }
-                    .avatar-fallback span {
-                        font-size: 0.9rem;
-                        font-weight: 600;
-                    }
-                `;
-                document.head.appendChild(style);
-            });
-        }
-    }
-    
-    // ============ تهيئة زر تحميل السيرة الذاتية ============
-    function initCvDownload() {
-        if (elements.cvDownload) {
-            elements.cvDownload.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const lang = appState.currentLang;
-                const message = lang === 'ar' 
-                    ? 'سيتم إضافة رابط تحميل السيرة الذاتية قريبًا.'
-                    : 'CV download link will be added soon.';
-                
-                alert(message);
-            });
+            // تحقق من تحميل الصورة بعد وقت قصير
+            setTimeout(() => {
+                if (elements.profileImg.naturalWidth === 0) {
+                    console.log('⚠️ الصورة الشخصية لم تتحمل - تحقق من المسار: assets/images/profile.jpg');
+                } else {
+                    console.log('✅ الصورة الشخصية تم تحميلها بنجاح');
+                }
+            }, 1000);
         }
     }
     
     // ============ تحديث جميع النصوص ============
     function updateAllTexts() {
-        // تحديث النصوص الأساسية
-        updateBasicTexts();
-        
-        // تحديث المحتوى الديناميكي
-        updateDynamicContent();
-    }
-    
-    function updateBasicTexts() {
         const lang = appState.currentLang;
         const t = appData.translations[lang];
         const user = appData.user;
@@ -234,23 +183,30 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
+        // تحديث نص "عنّي"
+        if (elements.aboutText && t && t.about_text) {
+            elements.aboutText.textContent = t.about_text;
+        }
+        
+        // تحديث قسم التوافر
+        if (elements.availabilityTitle && t && t.availability) {
+            elements.availabilityTitle.textContent = t.availability;
+        }
+        if (elements.availabilityText && t && t.available_for_projects) {
+            elements.availabilityText.textContent = t.available_for_projects;
+        }
+        
         // تحديث نص حقوق النشر
         if (elements.copyrightText) {
             const year = new Date().getFullYear();
             elements.copyrightText.textContent = lang === 'ar' 
-                ? `© ${year} Dashboard Pro Portfolio. جميع الحقوق محفوظة.`
-                : `© ${year} Dashboard Pro Portfolio. All rights reserved.`;
+                ? `© ${year} AA | Data Solutions. جميع الحقوق محفوظة.`
+                : `© ${year} AA | Data Solutions. All rights reserved.`;
         }
     }
     
     // ============ تحميل المحتوى الديناميكي ============
     function loadDynamicContent() {
-        loadServices();
-        loadSkills();
-        loadProjects();
-    }
-    
-    function updateDynamicContent() {
         loadServices();
         loadSkills();
         loadProjects();

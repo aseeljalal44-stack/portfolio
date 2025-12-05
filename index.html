@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="بورتفوليو مطور لوحات تحكم تفاعلية | Interactive Dashboard Developer Portfolio">
-    <title>Portfolio | Data Dashboard Developer</title>
+    <meta name="description" content="بورتفوليو خبير حلول البيانات التفاعلية | Interactive Data Solutions Expert Portfolio">
+    <title>Portfolio | AA | Data Solutions</title>
     
     <!-- الخطوط -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -23,8 +23,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <i class="fas fa-chart-line"></i>
-                <span class="logo-text">Dashboard Pro</span>
+                <span id="site-title">AA | Data Solutions</span>
             </div>
             
             <ul class="nav-menu" id="nav-menu">
@@ -53,8 +52,8 @@
                 <h1 class="hero-title">
                     <span id="hero-name" class="arabic-name">أسيل الزواهرة</span>
                 </h1>
-                <h2 class="hero-subtitle" id="hero-role">مطور لوحات تحكّم تفاعلية</h2>
-                <p class="hero-tagline" id="hero-tagline">تحويل البيانات إلى تطبيقات ذكية وسهلة الاستخدام</p>
+                <h2 class="hero-subtitle" id="hero-role">خبير حلول البيانات التفاعلية</h2>
+                <p class="hero-tagline" id="hero-tagline">أحول البيانات المعقدة إلى لوحات تحكم ذكية وقابلة للتنفيذ</p>
                 
                 <div class="hero-buttons">
                     <a href="#projects" class="btn-primary" data-i18n="view_projects">عرض المشاريع</a>
@@ -63,8 +62,16 @@
             </div>
             
             <div class="profile-image">
-                <!-- ضع صورتك هنا باسم profile.jpg في مجلد assets/images -->
-                <img src="assets/images/profile.jpg" alt="أسيل الزواهرة - مطور لوحات تحكم" id="profile-img">
+                <!-- الصورة الشخصية - تأكد من وجودها في assets/images/profile.jpg -->
+                <img src="assets/images/profile.jpg" alt="أسيل الزواهرة - خبير حلول البيانات" 
+                     id="profile-img"
+                     onerror="this.style.display='none'; document.getElementById('avatar-fallback').style.display='flex';">
+                <!-- البديل في حالة عدم تحميل الصورة -->
+                <div class="avatar-fallback" id="avatar-fallback">
+                    <i class="fas fa-user-circle"></i>
+                    <p>أسيل الزواهرة</p>
+                    <small>Data Solutions Expert</small>
+                </div>
             </div>
         </div>
     </header>
@@ -79,8 +86,8 @@
             </div>
             
             <div class="about-content">
-                <p class="about-text" data-i18n="about_text">
-                    مطور متخصص في بناء حلول تحليل البيانات التفاعلية. أركز على تحويل العمليات اليدوية إلى أنظمة أوتوماتيكية، وتحويل ملفات Excel إلى تطبيقات ويب تفاعلية تسهل اتخاذ القرار. لدي خبرة في تطوير لوحات التحكم باستخدام Streamlit وتقديم حلول ذكية للشركات والمؤسسات.
+                <p class="about-text" id="about-text">
+                    متخصص في هندسة حلول البيانات وتطوير لوحات التحكم التفاعلية. أمتلك خبرة في تحويل العمليات اليدوية إلى أنظمة مؤتمتة بالكامل، وتحويل ملفات Excel الثابتة إلى تطبيقات ويب ديناميكية تدعم اتخاذ القرارات الاستراتيجية. أركز على بناء حلول قابلة للتطوير تلبي احتياجات الأعمال المعقدة.
                 </p>
                 
                 <!-- الخدمات -->
@@ -151,10 +158,10 @@
                 
                 <div class="contact-card">
                     <div class="contact-icon">
-                        <i class="fas fa-download"></i>
+                        <i class="fas fa-clock"></i>
                     </div>
-                    <h3>السيرة الذاتية</h3>
-                    <a href="#" class="btn-download" id="cv-download" data-i18n="download_cv">تحميل CV</a>
+                    <h3 id="availability-title">التوافر</h3>
+                    <span class="contact-info" id="availability-text">متاح للمشاريع الجديدة</span>
                 </div>
             </div>
         </section>
@@ -164,7 +171,7 @@
     <footer class="footer">
         <div class="footer-content">
             <p class="copyright" id="copyright-text">
-                © 2025 Dashboard Pro Portfolio. جميع الحقوق محفوظة.
+                © 2025 AA | Data Solutions. جميع الحقوق محفوظة.
             </p>
             
             <div class="social-links">

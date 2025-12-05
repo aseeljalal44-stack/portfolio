@@ -2,10 +2,10 @@
   "user": {
     "name_ar": "أسيل الزواهرة",
     "name_en": "Aseel Alzawahreh",
-    "role_ar": "خبير حلول البيانات التفاعلية",
-    "role_en": "Interactive Data Solutions Expert",
-    "tagline_ar": "أحول البيانات المعقدة إلى لوحات تحكم ذكية وقابلة للتنفيذ",
-    "tagline_en": "Transforming complex data into actionable, intelligent dashboards",
+    "role_ar": "Full-Stack Developer",
+    "role_en": "Full-Stack Developer",
+    "tagline_ar": "متخصص في بناء لوحات تحكم وأدوات ذكية تساعد الشركات على فهم بياناتها واتخاذ قرارات أسرع",
+    "tagline_en": "Specialized in building dashboards and smart tools that help companies understand their data and make faster decisions",
     "email": "aseeljalal45@gmail.com",
     "github": "https://github.com/aseeljalal44-stack",
     "whatsapp": "+962785094075",
@@ -46,166 +46,45 @@
   ],
   
   "skills": {
-    "data_analysis": {
-      "title_ar": "تحليل البيانات",
-      "title_en": "Data Analysis",
-      "icon": "fas fa-chart-bar",
-      "items": [
-        {
-          "name": "Pandas",
-          "desc_ar": "تحليل ومعالجة البيانات",
-          "desc_en": "Data manipulation and analysis"
-        },
-        {
-          "name": "NumPy",
-          "desc_ar": "حسابات علمية",
-          "desc_en": "Numerical computing"
-        },
-        {
-          "name": "SQL",
-          "desc_ar": "استعلامات قواعد البيانات",
-          "desc_en": "Database queries"
-        },
-        {
-          "name": "Power BI",
-          "desc_ar": "لوحات تحكم الأعمال",
-          "desc_en": "Business intelligence dashboards"
-        }
-      ]
-    },
-    "streamlit_dev": {
-      "title_ar": "تطوير Streamlit",
-      "title_en": "Streamlit Development",
-      "icon": "fas fa-code",
-      "items": [
-        {
-          "name": "Streamlit",
-          "desc_ar": "تطبيقات ويب تفاعلية",
-          "desc_en": "Interactive web applications"
-        },
-        {
-          "name": "Plotly",
-          "desc_ar": "تصورات تفاعلية",
-          "desc_en": "Interactive visualizations"
-        },
-        {
-          "name": "Altair",
-          "desc_ar": "تصورات إحصائية",
-          "desc_en": "Statistical visualizations"
-        },
-        {
-          "name": "Session State",
-          "desc_ar": "إدارة حالة المستخدم",
-          "desc_en": "User state management"
-        }
-      ]
-    },
-    "automation": {
-      "title_ar": "أتمتة العمليات",
-      "title_en": "Process Automation",
-      "icon": "fas fa-robot",
-      "items": [
-        {
-          "name": "Python",
-          "desc_ar": "برمجة وأتمتة",
-          "desc_en": "Programming & automation"
-        },
-        {
-          "name": "OpenPyXL",
-          "desc_ar": "أتمتة Excel",
-          "desc_en": "Excel automation"
-        },
-        {
-          "name": "APScheduler",
-          "desc_ar": "جدولة المهام",
-          "desc_en": "Job scheduling"
-        },
-        {
-          "name": "Web Scraping",
-          "desc_ar": "جمع البيانات من الويب",
-          "desc_en": "Web data extraction"
-        }
-      ]
-    },
-    "ui_design": {
-      "title_ar": "تصميم الواجهات",
-      "title_en": "UI/UX Design",
+    "frontend": {
+      "title_ar": "تطوير الواجهات",
+      "title_en": "Frontend Development",
       "icon": "fas fa-paint-brush",
       "items": [
-        {
-          "name": "Figma",
-          "desc_ar": "تصميم واجهات",
-          "desc_en": "UI/UX design"
-        },
-        {
-          "name": "Adobe XD",
-          "desc_ar": "نماذج تفاعلية",
-          "desc_en": "Interactive prototyping"
-        },
-        {
-          "name": "Responsive Design",
-          "desc_ar": "تصميم متجاوب",
-          "desc_en": "Responsive design"
-        },
-        {
-          "name": "Material Design",
-          "desc_ar": "مبادئ التصميم",
-          "desc_en": "Design principles"
-        }
+        {"name": "HTML5", "desc_ar": "بناء الهيكل الأساسي", "desc_en": "Structure building", "icon": "fab fa-html5"},
+        {"name": "CSS3", "desc_ar": "التصميم والتنسيق", "desc_en": "Styling & layout", "icon": "fab fa-css3-alt"},
+        {"name": "JavaScript", "desc_ar": "التفاعلية والديناميكية", "desc_en": "Interactivity", "icon": "fab fa-js"},
+        {"name": "Bootstrap", "desc_ar": "إطار عمل متجاوب", "desc_en": "Responsive framework", "icon": "fab fa-bootstrap"}
       ]
     },
-    "devops": {
-      "title_ar": "نشر التطبيقات",
-      "title_en": "App Deployment",
+    "backend": {
+      "title_ar": "تطوير الخلفية",
+      "title_en": "Backend Development",
       "icon": "fas fa-server",
       "items": [
-        {
-          "name": "Git & GitHub",
-          "desc_ar": "إدارة الإصدارات",
-          "desc_en": "Version control"
-        },
-        {
-          "name": "Streamlit Cloud",
-          "desc_ar": "نشر التطبيقات",
-          "desc_en": "Application deployment"
-        },
-        {
-          "name": "Docker",
-          "desc_ar": "حاويات التطبيقات",
-          "desc_en": "Application containers"
-        },
-        {
-          "name": "CI/CD",
-          "desc_ar": "تكامل مستمر",
-          "desc_en": "Continuous integration"
-        }
+        {"name": "Python", "desc_ar": "برمجة الخوادم", "desc_en": "Server programming", "icon": "fab fa-python"},
+        {"name": "FastAPI", "desc_ar": "واجهات API سريعة", "desc_en": "Fast APIs", "icon": "fas fa-bolt"},
+        {"name": "Flask", "desc_ar": "إطار ويب خفيف", "desc_en": "Lightweight web framework", "icon": "fas fa-flask"}
       ]
     },
-    "soft_skills": {
-      "title_ar": "مهارات شخصية",
-      "title_en": "Soft Skills",
-      "icon": "fas fa-users",
+    "data": {
+      "title_ar": "علوم البيانات",
+      "title_en": "Data Science",
+      "icon": "fas fa-chart-line",
       "items": [
-        {
-          "name": "حل المشكلات",
-          "desc_ar": "تحليل وإيجاد الحلول",
-          "desc_en": "Problem solving"
-        },
-        {
-          "name": "التواصل الفعال",
-          "desc_ar": "عرض الأفكار بوضوح",
-          "desc_en": "Effective communication"
-        },
-        {
-          "name": "العمل الجماعي",
-          "desc_ar": "التعاون في الفريق",
-          "desc_en": "Team collaboration"
-        },
-        {
-          "name": "إدارة الوقت",
-          "desc_ar": "تنظيم المهام",
-          "desc_en": "Time management"
-        }
+        {"name": "Pandas", "desc_ar": "تحليل ومعالجة البيانات", "desc_en": "Data analysis", "icon": "fas fa-table"},
+        {"name": "NumPy", "desc_ar": "حسابات علمية", "desc_en": "Scientific computing", "icon": "fas fa-calculator"},
+        {"name": "Data Visualization", "desc_ar": "تصور البيانات", "desc_en": "Data visualization", "icon": "fas fa-chart-bar"}
+      ]
+    },
+    "tools": {
+      "title_ar": "أدوات التطوير",
+      "title_en": "Development Tools",
+      "icon": "fas fa-tools",
+      "items": [
+        {"name": "Git & GitHub", "desc_ar": "التحكم بالإصدارات", "desc_en": "Version control", "icon": "fab fa-git-alt"},
+        {"name": "Streamlit", "desc_ar": "لوحات التحكم التفاعلية", "desc_en": "Interactive dashboards", "icon": "fas fa-sliders-h"},
+        {"name": "VS Code", "desc_ar": "محرر النصوص", "desc_en": "Code editor", "icon": "fas fa-code"}
       ]
     }
   },
@@ -257,7 +136,7 @@
       "projects": "المشاريع",
       "projects_title": "أبرز المشاريع",
       "contact": "تواصل",
-      "contact_title": "طرق التواصل",
+      "contact_title": "جاهز لبدء مشروعك؟",
       "services": "الخدمات",
       "services_title": "الخدمات المقدمة",
       "availability": "التوافر",
@@ -267,7 +146,7 @@
       "view_code": "عرض الكود",
       "get_in_touch": "تواصل معي",
       "available_for_projects": "متاح للمشاريع الجديدة",
-      "about_text": "متخصص في هندسة حلول البيانات وتطوير لوحات التحكم التفاعلية. أمتلك خبرة في تحويل العمليات اليدوية إلى أنظمة مؤتمتة بالكامل، وتحويل ملفات Excel الثابتة إلى تطبيقات ويب ديناميكية تدعم اتخاذ القرارات الاستراتيجية. أركز على بناء حلول قابلة للتطوير تلبي احتياجات الأعمال المعقدة.",
+      "about_text": "أنا مطور برمجيات أركز على بناء أدوات ولوحات تحكم تساعد الأفراد والمتاجر على تحليل البيانات واتخاذ قرارات أسرع. خلال العام الأخير أنجزت أكثر من 10 أدوات، وجميع شغلي يعتمد على تصميم بسيط وتجربة واضحة وسرعة في التنفيذ.",
       "email_label": "البريد الإلكتروني",
       "whatsapp_label": "واتساب",
       "github_label": "GitHub",
@@ -280,7 +159,7 @@
       "projects": "Projects",
       "projects_title": "Featured Projects",
       "contact": "Contact",
-      "contact_title": "Contact Methods",
+      "contact_title": "Ready to Start Your Project?",
       "services": "Services",
       "services_title": "Services Offered",
       "availability": "Availability",
@@ -290,7 +169,7 @@
       "view_code": "View Code",
       "get_in_touch": "Get in Touch",
       "available_for_projects": "Available for new projects",
-      "about_text": "Specialized in data solutions engineering and interactive dashboard development. I possess expertise in transforming manual processes into fully automated systems, and converting static Excel files into dynamic web applications that support strategic decision-making. I focus on building scalable solutions that address complex business needs.",
+      "about_text": "I'm a software developer focused on building tools and dashboards that help individuals and businesses analyze data and make faster decisions. Over the past year, I've completed over 10 tools, and all my work is based on simple design, clear experience, and fast execution.",
       "email_label": "Email Address",
       "whatsapp_label": "WhatsApp",
       "github_label": "GitHub",

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="بورتفوليو أسيل الزواهرة - مطور لوحات تحكم تفاعلية | Aseel Alzawahreh - Interactive Dashboard Developer">
-    <title>أسيل الزواهرة | Aseel Alzawahreh</title>
+    <meta name="description" content="بورتفوليو مطور لوحات تحكم تفاعلية | Interactive Dashboard Developer Portfolio">
+    <title>Portfolio | Data Dashboard Developer</title>
     
     <!-- الخطوط -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -23,7 +23,8 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <span id="site-title">أسيل الزواهرة</span>
+                <i class="fas fa-chart-line"></i>
+                <span class="logo-text">Dashboard Pro</span>
             </div>
             
             <ul class="nav-menu" id="nav-menu">
@@ -61,10 +62,9 @@
                 </div>
             </div>
             
-            <div class="hero-image">
-                <div class="avatar-placeholder">
-                    <i class="fas fa-code"></i>
-                </div>
+            <div class="profile-image">
+                <!-- ضع صورتك هنا باسم profile.jpg في مجلد assets/images -->
+                <img src="assets/images/profile.jpg" alt="أسيل الزواهرة - مطور لوحات تحكم" id="profile-img">
             </div>
         </div>
     </header>
@@ -117,69 +117,44 @@
             </div>
         </section>
 
-        <!-- قسم التواصل -->
+        <!-- قسم التواصل (بدون نموذج) -->
         <section id="contact" class="section section-dark">
             <div class="section-header">
                 <h2 class="section-title" data-i18n="contact">تواصل</h2>
                 <div class="section-divider"></div>
             </div>
             
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3 class="contact-title" data-i18n="get_in_touch">تواصل معي</h3>
-                    
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <span class="contact-label">البريد الإلكتروني</span>
-                                <a href="mailto:aseeljalal45@gmail.com" class="contact-value">aseeljalal45@gmail.com</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <i class="fab fa-whatsapp"></i>
-                            <div>
-                                <span class="contact-label">واتساب</span>
-                                <span class="contact-value">+962785094075</span>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <i class="fab fa-github"></i>
-                            <div>
-                                <span class="contact-label">GitHub</span>
-                                <a href="https://github.com/aseeljalal44-stack" target="_blank" class="contact-value">github.com/aseeljalal44-stack</a>
-                            </div>
-                        </div>
+            <div class="contact-container-simple">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
                     </div>
+                    <h3>البريد الإلكتروني</h3>
+                    <a href="mailto:aseeljalal45@gmail.com" class="contact-link">aseeljalal45@gmail.com</a>
                 </div>
                 
-                <div class="contact-form">
-                    <h3 class="form-title" data-i18n="send_message">إرسال رسالة</h3>
-                    
-                    <form id="message-form">
-                        <div class="form-group">
-                            <label for="name" data-i18n="name">الاسم</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email" data-i18n="email">البريد الإلكتروني</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message" data-i18n="message">الرسالة</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn-primary" data-i18n="send_message">
-                            إرسال الرسالة
-                        </button>
-                        
-                        <div id="form-message" class="form-message"></div>
-                    </form>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>واتساب</h3>
+                    <span class="contact-info">+962785094075</span>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3>GitHub</h3>
+                    <a href="https://github.com/aseeljalal44-stack" target="_blank" class="contact-link">github.com/aseeljalal44-stack</a>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h3>السيرة الذاتية</h3>
+                    <a href="#" class="btn-download" id="cv-download" data-i18n="download_cv">تحميل CV</a>
                 </div>
             </div>
         </section>
@@ -189,7 +164,7 @@
     <footer class="footer">
         <div class="footer-content">
             <p class="copyright" id="copyright-text">
-                © 2025 أسيل الزواهرة. جميع الحقوق محفوظة.
+                © 2025 Dashboard Pro Portfolio. جميع الحقوق محفوظة.
             </p>
             
             <div class="social-links">

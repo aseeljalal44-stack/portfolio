@@ -57,31 +57,13 @@ body[dir="ltr"] .arabic-name {
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
     font-size: 1.3rem;
     font-weight: 700;
     color: var(--light);
     background: linear-gradient(135deg, var(--primary), var(--secondary));
-    background-size: 200% 200%;
-    animation: gradientMove 5s ease infinite;
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.2rem;
     border-radius: 8px;
-}
-
-@keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-.logo i {
-    font-size: 1.5rem;
-}
-
-.logo-text {
-    font-family: 'Inter', sans-serif;
+    letter-spacing: 1px;
 }
 
 .nav-menu {
@@ -190,7 +172,7 @@ body[dir="ltr"] .arabic-name {
     margin-top: 2rem;
 }
 
-.btn-primary, .btn-secondary, .btn-download {
+.btn-primary, .btn-secondary {
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
     text-decoration: none;
@@ -262,10 +244,44 @@ body[dir="ltr"] .arabic-name {
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
+    display: block;
 }
 
 .profile-image:hover img {
     transform: scale(1.08);
+}
+
+.avatar-fallback {
+    width: 100%;
+    height: 100%;
+    display: none; /* مخفي افتراضيًا */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    padding: 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.avatar-fallback i {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+}
+
+.avatar-fallback p {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.avatar-fallback small {
+    font-size: 0.9rem;
+    opacity: 0.9;
 }
 
 /* الأقسام العامة */
@@ -578,20 +594,6 @@ body[dir="ltr"] .arabic-name {
     color: var(--muted);
     font-weight: 500;
     display: block;
-}
-
-.btn-download {
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-    color: white;
-    margin-top: 0.5rem;
-    padding: 0.6rem 1.2rem;
-    border-radius: 6px;
-    font-size: 0.9rem;
-}
-
-.btn-download:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 15px rgba(139, 92, 246, 0.25);
 }
 
 /* التذييل */

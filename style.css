@@ -1,675 +1,402 @@
-/* أساسيات الموقع */
-:root {
-    --primary: #8B5CF6;
-    --secondary: #5B21B6;
-    --dark: #0f1724;
-    --darker: #0b1220;
-    --light: #E6EEF8;
-    --muted: #94A3B8;
-    --border: #1f2937;
-    --card: rgba(255, 255, 255, 0.03);
-    --success: #10B981;
-    --error: #EF4444;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', 'Tajawal', sans-serif;
-    background: linear-gradient(180deg, rgba(6,10,15,0.9), rgba(6,10,15,0.95)), var(--dark);
-    color: var(--light);
-    line-height: 1.6;
-    direction: rtl;
-}
-
-body[dir="ltr"] {
-    direction: ltr;
-    font-family: 'Inter', sans-serif;
-}
-
-body[dir="ltr"] .arabic-name {
-    font-family: 'Tajawal', 'Inter', sans-serif;
-}
-
-/* زر تبديل اللغة الجديد */
-.simple-lang-toggle {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 1000;
-}
-
-.simple-lang-toggle button {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    border: none;
-    color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 600;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s;
-}
-
-.simple-lang-toggle button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(139, 92, 246, 0.3);
-}
-
-/* القسم الرئيسي (Hero) */
-.hero {
-    padding: 6rem 0 4rem;
-    margin-top: 0;
-}
-
-.hero-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 4rem;
-}
-
-.hero-content {
-    flex: 1;
-}
-
-.hero-title {
-    font-size: 3.5rem;
-    font-weight: 800;
-    margin-bottom: 1rem;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.hero-subtitle {
-    font-size: 1.5rem;
-    color: var(--muted);
-    margin-bottom: 1rem;
-}
-
-.hero-tagline {
-    font-size: 1.1rem;
-    color: var(--muted);
-    margin-bottom: 2rem;
-    max-width: 600px;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
-.btn-primary, .btn-secondary {
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    display: inline-block;
-    transition: all 0.3s;
-}
-
-.btn-primary {
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-    color: white;
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
-}
-
-.btn-secondary {
-    background: transparent;
-    color: var(--light);
-    border: 1px solid var(--border);
-}
-
-.btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: var(--primary);
-}
-
-/* الصورة الشخصية */
-.profile-image {
-    flex: 0 0 320px;
-    height: 320px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 4px solid transparent;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
-    position: relative;
-    transition: all 0.4s ease;
-}
-
-.profile-image::before {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    border-radius: 50%;
-    border: 2px solid transparent;
-    background: linear-gradient(135deg, var(--primary), transparent, var(--secondary));
-    z-index: -1;
-    animation: rotate 10s linear infinite;
-}
-
-@keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.profile-image:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(139, 92, 246, 0.4);
-}
-
-.profile-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.profile-image:hover img {
-    transform: scale(1.08);
-}
-
-.avatar-fallback {
-    width: 100%;
-    height: 100%;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: white;
-    border-radius: 50%;
-    text-align: center;
-    padding: 2rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.avatar-fallback i {
-    font-size: 5rem;
-    margin-bottom: 1rem;
-}
-
-.avatar-fallback p {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-}
-
-.avatar-fallback small {
-    font-size: 0.9rem;
-    opacity: 0.9;
-}
-
-/* الأقسام العامة */
-.section {
-    padding: 4rem 0;
-}
-
-.section-dark {
-    background: rgba(11, 18, 32, 0.7);
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.section-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--light);
-    display: inline-block;
-    position: relative;
-}
-
-.section-divider {
-    height: 4px;
-    width: 100px;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-    margin: 0.5rem auto 0;
-    border-radius: 2px;
-}
-
-/* قسم عني */
-.about-content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.about-text {
-    font-size: 1.1rem;
-    color: var(--muted);
-    margin-bottom: 3rem;
-    line-height: 1.8;
-}
-
-.services-title {
-    font-size: 1.8rem;
-    color: var(--light);
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-.service-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.5rem;
-    transition: all 0.3s;
-}
-
-.service-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary);
-    box-shadow: 0 10px 20px rgba(139, 92, 246, 0.2);
-}
-
-.service-icon {
-    font-size: 2rem;
-    color: var(--primary);
-    margin-bottom: 1rem;
-}
-
-.service-card h4 {
-    color: var(--light);
-    margin-bottom: 0.5rem;
-}
-
-.service-card p {
-    color: var(--muted);
-    font-size: 0.9rem;
-}
-
-/* قسم المهارات */
-.skills-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 0 2rem;
-}
-
-.skill-category {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.5rem;
-    transition: all 0.3s;
-}
-
-.skill-category:hover {
-    border-color: var(--primary);
-    box-shadow: 0 8px 20px rgba(139, 92, 246, 0.15);
-    transform: translateY(-3px);
-}
-
-.skill-category h3 {
-    color: var(--light);
-    margin-bottom: 1.5rem;
-    font-size: 1.4rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.skill-category h3 i {
-    color: var(--primary);
-}
-
-.skill-item {
-    margin-bottom: 1.2rem;
-    padding-bottom: 1.2rem;
-    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.skill-item:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
-.skill-name {
-    color: var(--light);
-    font-weight: 600;
-    font-size: 1rem;
-}
-
-.skill-desc {
-    color: var(--muted);
-    font-size: 0.85rem;
-    text-align: left;
-    max-width: 150px;
-}
-
-/* قسم المشاريع */
-.projects-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    padding: 0 2rem;
-}
-
-.project-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.5rem;
-    transition: all 0.3s;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary);
-    box-shadow: 0 15px 30px rgba(139, 92, 246, 0.25);
-}
-
-.project-icon {
-    width: 60px;
-    height: 60px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
-    color: white;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    margin-bottom: 1rem;
-}
-
-.project-card h4 {
-    color: var(--light);
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
-}
-
-.project-card p {
-    color: var(--muted);
-    margin-bottom: 1rem;
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
-
-.project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-.project-tag {
-    background: rgba(148, 163, 184, 0.1);
-    color: var(--muted);
-    padding: 0.25rem 0.75rem;
-    border-radius: 50px;
-    font-size: 0.8rem;
-    border: 1px solid var(--border);
-}
-
-.project-links {
-    display: flex;
-    gap: 1rem;
-}
-
-.project-link {
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: all 0.3s;
-}
-
-.project-link.primary {
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-    color: white;
-}
-
-.project-link.secondary {
-    background: transparent;
-    color: var(--light);
-    border: 1px solid var(--border);
-}
-
-.project-link:hover {
-    transform: translateY(-2px);
-}
-
-/* قسم التواصل الجديد */
-.contact-container-simple {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2rem;
-    padding: 0 2rem;
-}
-
-.contact-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 2rem 1.5rem;
-    text-align: center;
-    transition: all 0.3s;
-}
-
-.contact-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary);
-    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.2);
-}
-
-.contact-icon {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.5rem;
-    font-size: 1.5rem;
-    color: white;
-}
-
-.contact-card h3 {
-    color: var(--light);
-    margin-bottom: 0.75rem;
-    font-size: 1.2rem;
-}
-
-.contact-link {
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s;
-    word-break: break-word;
-    display: block;
-}
-
-.contact-link:hover {
-    color: var(--secondary);
-    text-decoration: underline;
-}
-
-.contact-info {
-    color: var(--muted);
-    font-weight: 500;
-    display: block;
-}
-
-/* التذييل */
-.footer {
-    background: rgba(6, 10, 15, 0.9);
-    border-top: 1px solid var(--border);
-    padding: 2rem 0;
-    margin-top: 2rem;
-}
-
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.copyright {
-    color: var(--muted);
-    font-size: 0.9rem;
-}
-
-.copyright strong {
-    color: var(--primary);
-    font-weight: 700;
-}
-
-.social-links {
-    display: flex;
-    gap: 1rem;
-}
-
-.social-links a {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: var(--card);
-    border: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--light);
-    text-decoration: none;
-    transition: all 0.3s;
-}
-
-.social-links a:hover {
-    background: var(--primary);
-    border-color: var(--primary);
-    transform: translateY(-3px);
-}
-
-/* التجاوب مع الأجهزة */
-@media (max-width: 768px) {
-    .simple-lang-toggle {
-        top: 15px;
-        left: 15px;
+// ============ تهيئة التطبيق ============
+document.addEventListener('DOMContentLoaded', function() {
+    // تهيئة حالة التطبيق
+    const appState = {
+        currentLang: 'ar', // اللغة الافتراضية
+        isMenuOpen: false
+    };
+    
+    // عناصر DOM المهمة
+    const elements = {
+        heroName: document.getElementById('hero-name'),
+        heroRole: document.getElementById('hero-role'),
+        heroTagline: document.getElementById('hero-tagline'),
+        servicesContainer: document.getElementById('services-container'),
+        skillsContainer: document.getElementById('skills-container'),
+        projectsContainer: document.getElementById('projects-container'),
+        copyrightText: document.getElementById('copyright-text'),
+        profileImg: document.getElementById('profile-img'),
+        fallbackName: document.getElementById('fallback-name'),
+        fallbackTitle: document.getElementById('fallback-title')
+    };
+    
+    // ============ تحميل البيانات ============
+    let appData = {};
+    
+    async function loadData() {
+        try {
+            const response = await fetch('data.json');
+            appData = await response.json();
+            initializeApp();
+        } catch (error) {
+            console.error('خطأ في تحميل البيانات:', error);
+            appData = getDefaultData();
+            initializeApp();
+        }
     }
     
-    .hero-container {
-        flex-direction: column;
-        text-align: center;
-        gap: 3rem;
+    function getDefaultData() {
+        return {
+            user: {
+                name_ar: "أسيل الزواهرة",
+                name_en: "Aseel Alzawahreh",
+                role_ar: "خبير حلول البيانات التفاعلية",
+                role_en: "Interactive Data Solutions Expert",
+                tagline_ar: "أحول البيانات المعقدة إلى لوحات تحكم ذكية وقابلة للتنفيذ",
+                tagline_en: "Transforming complex data into actionable, intelligent dashboards"
+            },
+            projects: [],
+            skills: {},
+            services: { ar: [], en: [] },
+            translations: { ar: {}, en: {} }
+        };
     }
     
-    .hero-title {
-        font-size: 2.5rem;
+    // ============ تهيئة التطبيق بعد تحميل البيانات ============
+    function initializeApp() {
+        // تهيئة القائمة المتحركة
+        initMobileMenu();
+        
+        // تهيئة تبديل اللغة
+        initLanguageToggle();
+        
+        // تهيئة الصورة الشخصية
+        initProfileImage();
+        
+        // تحديث جميع النصوص بناءً على اللغة الحالية
+        updateAllTexts();
+        
+        // تحميل المحتوى الديناميكي
+        loadDynamicContent();
+        
+        // إعداد حدث التمرير للنافذة
+        setupScrollEvents();
     }
     
-    .hero-subtitle {
-        font-size: 1.2rem;
+    // ============ القائمة المتحركة للأجهزة المحمولة ============
+    function initMobileMenu() {
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', function() {
+                appState.isMenuOpen = !appState.isMenuOpen;
+                navMenu.classList.toggle('active');
+                
+                // تغيير أيقونة القائمة
+                const icon = hamburger.querySelector('i');
+                if (appState.isMenuOpen) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // إغلاق القائمة عند النقر على رابط
+            const navLinks = navMenu.querySelectorAll('a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        appState.isMenuOpen = false;
+                        navMenu.classList.remove('active');
+                        const icon = hamburger.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            });
+        }
     }
     
-    .profile-image {
-        width: 250px;
-        height: 250px;
-        flex: 0 0 auto;
+    // ============ تبديل اللغة ============
+    function initLanguageToggle() {
+        const langToggle = document.getElementById('lang-toggle');
+        
+        if (langToggle) {
+            langToggle.addEventListener('click', function() {
+                // تبديل اللغة
+                appState.currentLang = appState.currentLang === 'ar' ? 'en' : 'ar';
+                
+                // تحديث اتجاه الصفحة
+                document.documentElement.dir = appState.currentLang === 'ar' ? 'rtl' : 'ltr';
+                document.documentElement.lang = appState.currentLang;
+                
+                // تحديث نص زر تبديل اللغة
+                const langText = langToggle.querySelector('.lang-text');
+                langText.textContent = appState.currentLang === 'ar' ? 'EN' : 'عربي';
+                
+                // تحديث جميع النصوص
+                updateAllTexts();
+                
+                // تحديث المحتوى الديناميكي
+                updateDynamicContent();
+                
+                // إعادة تحميل البيانات إذا لزم الأمر
+                reloadDynamicData();
+                
+                // إغلاق القائمة المتحركة إذا كانت مفتوحة
+                if (window.innerWidth <= 768 && appState.isMenuOpen) {
+                    appState.isMenuOpen = false;
+                    const navMenu = document.getElementById('nav-menu');
+                    if (navMenu) navMenu.classList.remove('active');
+                    const icon = document.querySelector('.hamburger i');
+                    if (icon) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                }
+            });
+        }
     }
     
-    .section-title {
-        font-size: 2rem;
+    // ============ تهيئة الصورة الشخصية ============
+    function initProfileImage() {
+        if (elements.profileImg) {
+            // بعد 2 ثانية، إذا لم تتحمل الصورة، أظهر البديل
+            setTimeout(() => {
+                if (elements.profileImg.naturalWidth === 0 || !elements.profileImg.complete) {
+                    console.log('⚠️ الصورة لم تتحمل، عرض البديل');
+                    elements.profileImg.style.display = 'none';
+                    document.getElementById('avatar-fallback').style.display = 'flex';
+                }
+            }, 2000);
+        }
     }
     
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
+    // ============ تحديث جميع النصوص ============
+    function updateAllTexts() {
+        // تحديث النصوص الأساسية
+        updateBasicTexts();
+        
+        // تحديث المحتوى الديناميكي
+        updateDynamicContent();
     }
     
-    .btn-primary, .btn-secondary {
-        width: 100%;
-        max-width: 250px;
-        text-align: center;
+    function updateBasicTexts() {
+        const lang = appState.currentLang;
+        const t = appData.translations[lang];
+        const user = appData.user;
+        
+        // تحديث قسم البطل
+        if (elements.heroName) {
+            elements.heroName.textContent = user[`name_${lang}`];
+            elements.heroName.className = lang === 'ar' ? 'arabic-name' : '';
+        }
+        
+        if (elements.heroRole) {
+            elements.heroRole.textContent = user[`role_${lang}`];
+        }
+        
+        if (elements.heroTagline) {
+            elements.heroTagline.textContent = user[`tagline_${lang}`];
+        }
+        
+        // تحديث نص البديل للصورة
+        if (elements.fallbackName) {
+            elements.fallbackName.textContent = user[`name_${lang}`];
+        }
+        
+        if (elements.fallbackTitle) {
+            elements.fallbackTitle.textContent = user[`role_${lang}`];
+        }
+        
+        // تحديث جميع النصوص المترجمة
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            if (t && t[key]) {
+                element.textContent = t[key];
+            }
+        });
+        
+        // تحديث نص حقوق النشر
+        if (elements.copyrightText) {
+            const year = new Date().getFullYear();
+            if (lang === 'ar') {
+                elements.copyrightText.innerHTML = `© ${year} جميع الحقوق محفوظة. <strong>Aseel Alzawahreh</strong>`;
+            } else {
+                elements.copyrightText.innerHTML = `© ${year} All rights reserved. <strong>Aseel Alzawahreh</strong>`;
+            }
+        }
     }
     
-    .contact-container-simple {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
+    // ============ تحميل المحتوى الديناميكي ============
+    function loadDynamicContent() {
+        loadServices();
+        loadSkills();
+        loadProjects();
     }
     
-    .footer-content {
-        flex-direction: column;
-        gap: 1.5rem;
-        text-align: center;
+    function updateDynamicContent() {
+        // إعادة تحميل كل المحتوى باللغة الجديدة
+        loadServices();
+        loadSkills();
+        loadProjects();
     }
     
-    .copyright {
-        order: 2;
+    function reloadDynamicData() {
+        // إعادة تحميل البيانات من الملف
+        loadData();
     }
     
-    .social-links {
-        order: 1;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: 2rem;
-    }
-    
-    .projects-grid,
-    .skills-container,
-    .contact-container-simple {
-        grid-template-columns: 1fr;
-    }
-    
-    .section {
-        padding: 3rem 0;
-    }
-    
-    .profile-image {
-        width: 220px;
-        height: 220px;
+    function loadServices() {
+        if (!elements.servicesContainer || !appData.services) return;
+        
+        const lang = appState.currentLang;
+        const services = appData.services[lang] || [];
+        
+        elements.servicesContainer.innerHTML = '';
+        
+        services.forEach(service => {
+            const serviceCard = document.createElement('div');
+            serviceCard.className = 'service-card';
+            serviceCard.innerHTML = `
+                <div class="service-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h4>${service.title}</h4>
+                <p>${service.description}</p>
+            `;
+            elements.servicesContainer.appendChild(serviceCard);
+        });
     }
     
-    .simple-lang-toggle button {
-        padding: 6px 12px;
-        font-size: 0.9rem;
+    function loadSkills() {
+        if (!elements.skillsContainer || !appData.skills) return;
+        
+        const lang = appState.currentLang;
+        elements.skillsContainer.innerHTML = '';
+        
+        if (Object.keys(appData.skills).length === 0) {
+            elements.skillsContainer.innerHTML = '<p style="text-align:center; color:var(--muted);">جاري تحميل المهارات...</p>';
+            return;
+        }
+        
+        Object.keys(appData.skills).forEach(categoryKey => {
+            const category = appData.skills[categoryKey];
+            
+            const skillCategory = document.createElement('div');
+            skillCategory.className = 'skill-category';
+            
+            let skillsHTML = '';
+            category.items.forEach(skill => {
+                skillsHTML += `
+                    <div class="skill-item">
+                        <span class="skill-name">${skill.name}</span>
+                        <span class="skill-desc">${skill[`desc_${lang}`]}</span>
+                    </div>
+                `;
+            });
+            
+            skillCategory.innerHTML = `
+                <h3><i class="${category.icon || 'fas fa-star'}"></i> ${category[`title_${lang}`]}</h3>
+                ${skillsHTML}
+            `;
+            
+            elements.skillsContainer.appendChild(skillCategory);
+        });
     }
-}
+    
+    function loadProjects() {
+        if (!elements.projectsContainer || !appData.projects) return;
+        
+        const lang = appState.currentLang;
+        const t = appData.translations[lang];
+        elements.projectsContainer.innerHTML = '';
+        
+        if (!appData.projects || appData.projects.length === 0) {
+            elements.projectsContainer.innerHTML = '<p style="text-align:center; color:var(--muted);">جاري تحميل المشاريع...</p>';
+            return;
+        }
+        
+        appData.projects.forEach(project => {
+            const projectCard = document.createElement('div');
+            projectCard.className = 'project-card';
+            
+            let tagsHTML = '';
+            if (project.tags && project.tags.length > 0) {
+                tagsHTML = '<div class="project-tags">';
+                project.tags.forEach(tag => {
+                    tagsHTML += `<span class="project-tag">${tag}</span>`;
+                });
+                tagsHTML += '</div>';
+            }
+            
+            projectCard.innerHTML = `
+                <div class="project-icon">${project.icon}</div>
+                <h4>${project[`title_${lang}`]}</h4>
+                <p>${project[`desc_${lang}`]}</p>
+                ${tagsHTML}
+                <div class="project-links">
+                    <a href="${project.url}" target="_blank" class="project-link primary">
+                        ${t.view_live || 'عرض التطبيق'}
+                    </a>
+                    <a href="${project.github_url || appData.user.github}" target="_blank" class="project-link secondary">
+                        ${t.view_code || 'عرض الكود'}
+                    </a>
+                </div>
+            `;
+            
+            elements.projectsContainer.appendChild(projectCard);
+        });
+    }
+    
+    // ============ أحداث التمرير ============
+    function setupScrollEvents() {
+        // تحديث الرابط النشط في شريط التنقل أثناء التمرير
+        window.addEventListener('scroll', function() {
+            updateActiveNavLink();
+        });
+        
+        // التمرير السلس عند النقر على الروابط
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                if (href === '#') return;
+                
+                e.preventDefault();
+                const targetElement = document.querySelector(href);
+                
+                if (targetElement) {
+                    const offset = 80;
+                    const targetPosition = targetElement.offsetTop - offset;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    }
+    
+    function updateActiveNavLink() {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
+        
+        let currentSectionId = '';
+        const scrollPosition = window.scrollY + 100;
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                currentSectionId = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href');
+            if (href === `#${currentSectionId}`) {
+                link.classList.add('active');
+            }
+        });
+    }
+    
+    // ============ بدء تحميل البيانات ============
+    loadData();
+});

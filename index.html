@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="بورتفوليو أسيل الزواهرة - مطور لوحات تحكم تفاعلية | Aseel Alzawahreh - Interactive Dashboard Developer">
+    <title>أسيل الزواهرة | Aseel Alzawahreh</title>
+    
+    <!-- الخطوط -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- الأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- الأنماط -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- شريط التنقل العلوي -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span id="site-title">أسيل الزواهرة</span>
+            </div>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#about" data-i18n="about">عنّي</a></li>
+                <li><a href="#skills" data-i18n="skills">المهارات</a></li>
+                <li><a href="#projects" data-i18n="projects">المشاريع</a></li>
+                <li><a href="#contact" data-i18n="contact">تواصل</a></li>
+                <li>
+                    <button class="lang-toggle" id="lang-toggle">
+                        <span class="lang-text">EN</span>
+                        <i class="fas fa-globe"></i>
+                    </button>
+                </li>
+            </ul>
+            
+            <button class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- القسم الرئيسي (Hero) -->
+    <header class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span id="hero-name" class="arabic-name">أسيل الزواهرة</span>
+                </h1>
+                <h2 class="hero-subtitle" id="hero-role">مطور لوحات تحكّم تفاعلية</h2>
+                <p class="hero-tagline" id="hero-tagline">تحويل البيانات إلى تطبيقات ذكية وسهلة الاستخدام</p>
+                
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn-primary" data-i18n="view_projects">عرض المشاريع</a>
+                    <a href="#contact" class="btn-secondary" data-i18n="contact_me">تواصل معي</a>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <div class="avatar-placeholder">
+                    <i class="fas fa-code"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="main-content">
+        <!-- قسم عني -->
+        <section id="about" class="section">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="about">عنّي</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="about-content">
+                <p class="about-text" data-i18n="about_text">
+                    مطور متخصص في بناء حلول تحليل البيانات التفاعلية. أركز على تحويل العمليات اليدوية إلى أنظمة أوتوماتيكية، وتحويل ملفات Excel إلى تطبيقات ويب تفاعلية تسهل اتخاذ القرار. لدي خبرة في تطوير لوحات التحكم باستخدام Streamlit وتقديم حلول ذكية للشركات والمؤسسات.
+                </p>
+                
+                <!-- الخدمات -->
+                <div class="services-section">
+                    <h3 class="services-title" data-i18n="services">الخدمات</h3>
+                    <div class="services-grid" id="services-container">
+                        <!-- سيتم تعبئته بواسطة JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم المهارات -->
+        <section id="skills" class="section section-dark">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="skills">المهارات</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="skills-container" id="skills-container">
+                <!-- سيتم تعبئته بواسطة JavaScript -->
+            </div>
+        </section>
+
+        <!-- قسم المشاريع -->
+        <section id="projects" class="section">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="projects">المشاريع</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="projects-grid" id="projects-container">
+                <!-- سيتم تعبئته بواسطة JavaScript -->
+            </div>
+        </section>
+
+        <!-- قسم التواصل -->
+        <section id="contact" class="section section-dark">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="contact">تواصل</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3 class="contact-title" data-i18n="get_in_touch">تواصل معي</h3>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span class="contact-label">البريد الإلكتروني</span>
+                                <a href="mailto:aseeljalal45@gmail.com" class="contact-value">aseeljalal45@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <span class="contact-label">واتساب</span>
+                                <span class="contact-value">+962785094075</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <div>
+                                <span class="contact-label">GitHub</span>
+                                <a href="https://github.com/aseeljalal44-stack" target="_blank" class="contact-value">github.com/aseeljalal44-stack</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3 class="form-title" data-i18n="send_message">إرسال رسالة</h3>
+                    
+                    <form id="message-form">
+                        <div class="form-group">
+                            <label for="name" data-i18n="name">الاسم</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" data-i18n="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" data-i18n="message">الرسالة</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary" data-i18n="send_message">
+                            إرسال الرسالة
+                        </button>
+                        
+                        <div id="form-message" class="form-message"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- التذييل -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="copyright" id="copyright-text">
+                © 2025 أسيل الزواهرة. جميع الحقوق محفوظة.
+            </p>
+            
+            <div class="social-links">
+                <a href="https://github.com/aseeljalal44-stack" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" target="_blank" aria-label="LinkedIn" id="linkedin-link">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:aseeljalal45@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- السكريبتات -->
+    <script src="data.json"></script>
+    <script src="script.js"></script>
+</body>
+</html>

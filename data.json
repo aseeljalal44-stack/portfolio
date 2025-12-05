@@ -2,10 +2,10 @@
   "user": {
     "name_ar": "أسيل الزواهرة",
     "name_en": "Aseel Alzawahreh",
-    "role_ar": "مطور لوحات تحكّم تفاعلية",
-    "role_en": "Interactive Dashboard Developer",
-    "tagline_ar": "تحويل البيانات إلى تطبيقات ذكية وسهلة الاستخدام",
-    "tagline_en": "Transforming data into smart, usable web apps",
+    "role_ar": "خبير حلول البيانات التفاعلية",
+    "role_en": "Interactive Data Solutions Expert",
+    "tagline_ar": "أحول البيانات المعقدة إلى لوحات تحكم ذكية وقابلة للتنفيذ",
+    "tagline_en": "Transforming complex data into actionable, intelligent dashboards",
     "email": "aseeljalal45@gmail.com",
     "github": "https://github.com/aseeljalal44-stack",
     "whatsapp": "+962785094075",
@@ -213,38 +213,38 @@
   "services": {
     "ar": [
       {
-        "title": "تطوير لوحات تحكم",
-        "description": "بناء لوحات تحكم تفاعلية مخصصة"
+        "title": "هندسة لوحات التحكم",
+        "description": "تصميم وتطوير لوحات تحكم تفاعلية مخصصة للبيانات الضخمة"
       },
       {
-        "title": "تحويل Excel إلى WebApp",
-        "description": "تحويل الملفات التقليدية إلى تطبيقات ويب"
+        "title": "تحويل البيانات إلى تطبيقات",
+        "description": "تحليل وتطوير أنظمة بيانات متكاملة من الملفات التقليدية"
       },
       {
-        "title": "أتمتة العمليات",
-        "description": "أتمتة المهام الروتينية لتحسين الكفاءة"
+        "title": "أتمتة سير العمل",
+        "description": "تحويل العمليات اليدوية إلى أنظمة عمل مؤتمتة بالكامل"
       },
       {
-        "title": "تحليل البيانات",
-        "description": "استخراج تقارير وInsight قابلة للتنفيذ"
+        "title": "استشارات تحليل البيانات",
+        "description": "توفير رؤى تنفيذية وخطط عمل قائمة على البيانات"
       }
     ],
     "en": [
       {
-        "title": "Dashboard Development",
-        "description": "Building custom interactive dashboards"
+        "title": "Dashboard Engineering",
+        "description": "Design and development of custom interactive dashboards for big data"
       },
       {
-        "title": "Excel → WebApp",
-        "description": "Converting traditional files into web applications"
+        "title": "Data-to-App Transformation",
+        "description": "Analysis and development of integrated data systems from traditional files"
       },
       {
-        "title": "Process Automation",
-        "description": "Automating routine tasks to improve efficiency"
+        "title": "Workflow Automation",
+        "description": "Transforming manual processes into fully automated work flows"
       },
       {
-        "title": "Data Analysis",
-        "description": "Actionable reporting and insights"
+        "title": "Data Analytics Consulting",
+        "description": "Providing executive insights and data-driven action plans"
       }
     ]
   },
@@ -260,8 +260,9 @@
       "contact_me": "تواصل معي",
       "view_live": "عرض التطبيق",
       "view_code": "عرض الكود",
-      "download_cv": "تحميل السيرة الذاتية",
-      "get_in_touch": "تواصل معي"
+      "availability": "التوافر",
+      "available_for_projects": "متاح للمشاريع الجديدة",
+      "about_text": "متخصص في هندسة حلول البيانات وتطوير لوحات التحكم التفاعلية. أمتلك خبرة في تحويل العمليات اليدوية إلى أنظمة مؤتمتة بالكامل، وتحويل ملفات Excel الثابتة إلى تطبيقات ويب ديناميكية تدعم اتخاذ القرارات الاستراتيجية. أركز على بناء حلول قابلة للتطوير تلبي احتياجات الأعمال المعقدة."
     },
     "en": {
       "about": "About",
@@ -273,8 +274,9 @@
       "contact_me": "Contact Me",
       "view_live": "View App",
       "view_code": "View Code",
-      "download_cv": "Download CV",
-      "get_in_touch": "Get in Touch"
+      "availability": "Availability",
+      "available_for_projects": "Available for new projects",
+      "about_text": "Specialized in data solutions engineering and interactive dashboard development. I possess expertise in transforming manual processes into fully automated systems, and converting static Excel files into dynamic web applications that support strategic decision-making. I focus on building scalable solutions that address complex business needs."
     }
   }
 }
